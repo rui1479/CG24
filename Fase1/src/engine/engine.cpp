@@ -21,9 +21,6 @@ using namespace std;
 #define WHITE 1.0f, 1.0f, 1.0f
 
 // Variáveis da câmara
-float alpha = M_PI / 4;
-float beta_ = M_PI / 4;
-float radius = 5.0f;
 float camx = 5.0f;
 float camy = 5.0f;
 float camz = 5.0f;
@@ -31,8 +28,9 @@ float lookAtx = 0.0f;
 float lookAty = 0.0f;
 float lookAtz = 0.0f;
 float upx = 0.0f;
-float upy = 0.0f;
+float upy = 1.0f;
 float upz = 0.0f;
+float posx = 0, posz = 0, angle = 0, scalex = 1, scaley = 1, scalez = 1;
 
 int mode = GL_LINE;
 
@@ -79,38 +77,41 @@ void drawFiguras(List figs){
     }
 }
 
+void draw_axis() {
+    glBegin(GL_LINES);
+    // X axis in red
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(-100.0f, 0.0f, 0.0f);
+    glVertex3f(100.0f, 0.0f, 0.0f);
+    // Y Axis in Green
+    glColor3f(0.0f, 1.0f, 0.0f);
+    glVertex3f(0.0f, -100.0f, 0.0f);
+    glVertex3f(0.0f, 100.0f, 0.0f);
+    // Z Axis in Blue
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glVertex3f(0.0f, 0.0f, -100.0f);
+    glVertex3f(0.0f, 0.0f, 100.0f);
+    glEnd();
+}
+
 void renderScene(void) {
 
-	// clear buffers
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // clear buffers
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// set the camera
-	glLoadIdentity();
-	gluLookAt(radius*cos(beta_)*sin(alpha), radius*sin(beta_), radius*cos(beta_)*cos(alpha),
-		      lookAtx,lookAty,lookAtz,
-			  upx,upy,upz);
+    // set the camera
+    glLoadIdentity();
+    gluLookAt(camx, camy, camz,
+        lookAtx, lookAty, lookAtz,
+        upx, upy, upz);
 
-	// put drawing instructions here
-	// linhas dos eixos
-	glBegin(GL_LINES);
-		// X axis in red
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glVertex3f(-100.0f, 0.0f, 0.0f);
-		glVertex3f( 100.0f, 0.0f, 0.0f);
-		// Y Axis in Green
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(0.0f,-100.0f, 0.0f);
-		glVertex3f(0.0f, 100.0f, 0.0f);
-		// Z Axis in Blue
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(0.0f, 0.0f,-100.0f);
-		glVertex3f(0.0f, 0.0f, 100.0f);
-	glEnd();
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	// put the geometric transformations here
-	// ...
-	//
+    // put drawing instructions here
+    // linhas dos eixos
+    draw_axis();
+    // put the geometric transformations here;
+    glTranslatef(posx, 0.0, posz);
+    glRotatef(angle, 0.0, 1.0, 0.0);
+    glScalef(scalex, scaley, scalez);
 
 	// figuras
 	glPolygonMode(GL_FRONT_AND_BACK, mode);
@@ -126,70 +127,79 @@ void renderScene(void) {
 
 // Só altera a posição da camera, para debug.
 void specKeyProc(int key_code, int x, int y) {
-	x = y; y=x; // Para não aparecerem os warnings.
-	switch (key_code){
-		case GLUT_KEY_UP:{
-			radius -= 0.1f;
-			break;
-		}
-		
-		case GLUT_KEY_DOWN:{
-			radius += 0.1f;
-			break;
-		}
-
-		default:
-			break;
-	}
-	glutPostRedisplay();
+    switch (key) {
+    case GLUT_KEY_UP:
+        camy += 1;
+        break;
+    case GLUT_KEY_DOWN:
+        camy -= 1;
+        break;
+    case GLUT_KEY_LEFT:
+        camx -= 1;
+        break;
+    case GLUT_KEY_RIGHT:
+        camx += 1;
+        break;
+    }
+    glutPostRedisplay();
 }
 
 // Só altera a posição da camera, para debug, e altera os modes para GL_FILL, GL_LINES, GL_POINT
 void keyProc(unsigned char key, int x, int y) {
-	x = y; y=x; // Para não aparecerem os warnings.
-	switch (key)
-	{
-		case 'a': { // left
-			alpha -= 0.1f;
-			break;
-		}
-
-		case 'd': { // right
-			alpha += 0.1f;
-			break;
-		}
-
-		case 'w': { // up 
-			beta_ += beta_ <= 1.48f ? 0.1f : 0.0f;
-			break;
-		}
-
-		case 's': { // down
-			beta_ -= beta_ >= -1.48f ? 0.1f : 0.0f;
-			break;
-		}
-
-		case('f'):
-			mode = GL_FILL;
-			break;
-
-		case('l'):
-			mode = GL_LINE;
-			break;
-
-		case('p'):
-			mode = GL_POINT;
-			break;
-
-		default:
-			break;
-	}
-	glutPostRedisplay();
+    switch (key) {
+    case 'a':
+        posx -= 0.1;
+        break;
+    case 'd':
+        posx += 0.1;
+        break;
+    case 's':
+        posz += 0.1;
+        break;
+    case 'w':
+        posz -= 0.1;
+        break;
+    case 'q':
+        angle -= 15;
+        break;
+    case 'e':
+        angle += 15;
+        break;
+    case 'i':
+        scalez += 0.1;
+        break;
+    case 'k':
+        scalez -= 0.1;
+        break;
+    case 'j':
+        scalex -= 0.1;
+        break;
+    case 'l':
+        scalex += 0.1;
+        break;
+    case 'u':
+        scaley -= 0.1;
+        break;
+    case 'o':
+        scaley += 0.1;
+        break;
+    case '+':
+        scalex += 0.1;
+        scaley += 0.1;
+        scalez += 0.1;
+        break;
+    case '-':
+        scalex -= 0.1;
+        scaley -= 0.1;
+        scalez -= 0.1;
+        break;
+    }
+    glutPostRedisplay();
 }
 
 int main(int argc, char *argv[]) {
 	// Carregamento dos dados das figuras
-	configuration = xmlToConfig(argv[1]); 
+	configuration = xmlToConfig(argv[1]);
 	List models   = getModels(configuration); // !NÃO FAZER DELETE DESTA LISTA! contém as paths dos modelos presentes no ficheiro de configuração
 	figuras 	  = newL(); // figuras no ficheiro de configuração
 	List temp = models;
@@ -201,25 +211,25 @@ int main(int argc, char *argv[]) {
 	camx    = getXPosCam(configuration);
 	camy    = getYPosCam(configuration);
 	camz    = getZPosCam(configuration);
-	radius  = sqrt(camx*camx + camy*camy + camz*camz);
 	lookAtx = getXLookAt(configuration);
 	lookAty = getYLookAt(configuration);
 	lookAtz = getZLookAt(configuration);
 	upx 	= getXUp(configuration);
 	upy 	= getYUp(configuration);
 	upz 	= getZUp(configuration);
-	alpha = acos(camz/sqrt(camx*camx + camz*camz));
-	beta_ = asin(camy/radius);
+
 	// init GLUT and the window
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(800,800);
-	glutCreateWindow("Fase 1");
+	glutCreateWindow("Projeto_CG");
 		
 	// Required callback registry 
 	glutDisplayFunc(renderScene);
 	glutReshapeFunc(changeSize);
+	glutIdleFunc(renderScene);
+
 
 	
 	// put here the registration of the keyboard callbacks (por enquanto só mexem na camara como forma de debug)
