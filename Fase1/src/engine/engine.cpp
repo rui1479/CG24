@@ -1,26 +1,27 @@
-#ifdef __APPLE__
+#define NOCRT_STDIO_INLINE
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <list>
+//#include <GL/glew.h>
+#ifdef __APPLE
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif
-#include "../utils/primitive.hpp"
-#include "../utils/point.hpp"
-#include "../utils/list.hpp"
-#include "../tinyXML/tinyxml.h"
-#include "config.hpp"
-#include "math.h"
+#undef _NO_CRT_STDIO_INLINE
+
+
+
+#ifndef MY_EXIT_DEFINITION
+#include <windows.h>
+#endif
+
 
 using namespace std;
 
-// Códigos de cores
-#define RED 1.0f,0.0f,0.0f
-#define GREEN 0.0f,1.0f,0.0f
-#define BLUE 0.0f,0.0f,1.0f
-#define YELLOW 1.0f, 1.0f, 0.0f
-#define CYAN 0.0f, 1.0f, 1.0f
-#define WHITE 1.0f, 1.0f, 1.0f
-
-// Variáveis da câmara
 float camx = 5.0f;
 float camy = 5.0f;
 float camz = 5.0f;
@@ -32,49 +33,83 @@ float upy = 1.0f;
 float upz = 0.0f;
 float posx = 0, posz = 0, angle = 0, scalex = 1, scaley = 1, scalez = 1;
 
-int mode = GL_LINE;
+struct Point {
+    float x, y, z;
+};
 
-Config configuration = NULL;
-List figuras = NULL;
+vector<Point> vertexes;
+
+
+void readFile(string fich) {
+    string linha;
+    string novo;
+    string delimiter = ",";
+    int pos;
+    float xx, yy, zz;
+    Point p;
+
+    ifstream file(fich);
+
+    if (file.is_open()) {
+
+        while (getline(file, linha)) {
+
+            pos = linha.find(delimiter);
+            novo = linha.substr(0, pos);
+            xx = atof(novo.c_str());
+            linha.erase(0, pos + delimiter.length());
+            p.x = xx;
+
+            pos = linha.find(delimiter);
+            novo = linha.substr(0, pos);
+            yy = atof(novo.c_str());
+            linha.erase(0, pos + delimiter.length());
+            p.y = yy;
+
+            pos = linha.find(delimiter);
+            novo = linha.substr(0, pos);
+            zz = atof(novo.c_str());
+            linha.erase(0, pos + delimiter.length());
+            p.z = zz;
+
+            vertexes.push_back(p);
+
+        }
+
+        file.close();
+
+
+    }
+    else {
+
+        cout << "ERRO AO LER FICHEIRO" << endl;
+    }
+}
+
 
 void changeSize(int w, int h) {
 
-	// Prevent a divide by zero, when window is too short
-	// (you cant make a window with zero width).
-	if(h == 0)
-		h = 1;
+    // Prevent a divide by zero, when window is too short
+    // (you cant make a window with zero width).
+    if (h == 0)
+        h = 1;
 
-	// compute window's aspect ratio 
-	float ratio = w * 1.0 / h;
+    // compute window's aspect ratio
+    float ratio = w * 1.0 / h;
 
-	// Set the projection matrix as current
-	glMatrixMode(GL_PROJECTION);
-	// Load Identity Matrix
-	glLoadIdentity();
-	
-	// Set the viewport to be the entire window
+    // Set the projection matrix as current
+    glMatrixMode(GL_PROJECTION);
+    // Load Identity Matrix
+    glLoadIdentity();
+
+    // Set the viewport to be the entire window
     glViewport(0, 0, w, h);
 
-	// Set perspective
-	gluPerspective(45.0f ,ratio, 1.0f ,1000.0f);
+    // Set perspective
+    gluPerspective(45.0f, ratio, 1.0f, 1000.0f);
 
-	// return to the model view matrix mode
-	glMatrixMode(GL_MODELVIEW);
-}
-
-void drawFiguras(List figs){
-    List temp = figs;
-    while(getNext(temp)){
-        Primitive pri = (Primitive)getData(temp);
-        List pontos = getPontos(pri);
-        List tempPontos = pontos;
-        while(getNext(tempPontos)) {
-            Point ponto = (Point)getData(tempPontos);
-            glVertex3f(getX(ponto), getY(ponto), getZ(ponto));
-            tempPontos = getNext(tempPontos);
-        }
-        temp = getNext(temp);
-    }
+    // return to the model view matrix mode
+    glMatrixMode(GL_MODELVIEW);
 }
 
 void draw_axis() {
@@ -95,6 +130,7 @@ void draw_axis() {
 }
 
 void renderScene(void) {
+    int i = 0, j = 3;
 
     // clear buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -113,20 +149,29 @@ void renderScene(void) {
     glRotatef(angle, 0.0, 1.0, 0.0);
     glScalef(scalex, scaley, scalez);
 
-	// figuras
-	glPolygonMode(GL_FRONT_AND_BACK, mode);
-	glBegin(GL_TRIANGLES);
-	drawFiguras(figuras);
+    // figuras
+    glBegin(GL_TRIANGLES);
+
+
+    for (; i < vertexes.size(); i += 6) {
+        glColor3f(0.0, 0.0, 1.0);
+        glVertex3f(vertexes[i].x, vertexes[i].y, vertexes[i].z);
+        glVertex3f(vertexes[i + 1].x, vertexes[i + 1].y, vertexes[i + 1].z);
+        glVertex3f(vertexes[i + 2].x, vertexes[i + 2].y, vertexes[i + 2].z);
+        glColor3f(1.0, 0.0, 0.0);
+        glVertex3f(vertexes[i + 3].x, vertexes[i + 3].y, vertexes[i + 3].z);
+        glVertex3f(vertexes[i + 4].x, vertexes[i + 4].y, vertexes[i + 4].z);
+        glVertex3f(vertexes[i + 5].x, vertexes[i + 5].y, vertexes[i + 5].z);
+    }
+
+
     glEnd();
-	
-	// End of frame
-	glutSwapBuffers();
+
+    // End of frame
+    glutSwapBuffers();
 }
 
-// write function to process keyboard events
-
-// Só altera a posição da camera, para debug.
-void specKeyProc(int key_code, int x, int y) {
+void keyboardspecial(int key, int x, int y) {
     switch (key) {
     case GLUT_KEY_UP:
         camy += 1;
@@ -144,8 +189,8 @@ void specKeyProc(int key_code, int x, int y) {
     glutPostRedisplay();
 }
 
-// Só altera a posição da camera, para debug, e altera os modes para GL_FILL, GL_LINES, GL_POINT
-void keyProc(unsigned char key, int x, int y) {
+// write function to process keyboard events
+void keyboardFunc(unsigned char key, int x, int y) {
     switch (key) {
     case 'a':
         posx -= 0.1;
@@ -197,54 +242,30 @@ void keyProc(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
-int main(int argc, char *argv[]) {
-	// Carregamento dos dados das figuras
-	configuration = xmlToConfig(argv[1]);
-	List models   = getModels(configuration); // !NÃO FAZER DELETE DESTA LISTA! contém as paths dos modelos presentes no ficheiro de configuração
-	figuras 	  = newL(); // figuras no ficheiro de configuração
-	List temp = models;
-    while(getNext(temp)){
-		addValueList(figuras, fileToPrimitive((char*)getData(temp)));
-        temp = getNext(temp);
-	}
-	// Carregamento dos dados da câmara
-	camx    = getXPosCam(configuration);
-	camy    = getYPosCam(configuration);
-	camz    = getZPosCam(configuration);
-	lookAtx = getXLookAt(configuration);
-	lookAty = getYLookAt(configuration);
-	lookAtz = getZLookAt(configuration);
-	upx 	= getXUp(configuration);
-	upy 	= getYUp(configuration);
-	upz 	= getZUp(configuration);
-
-	// init GLUT and the window
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
-	glutInitWindowPosition(100,100);
-	glutInitWindowSize(800,800);
-	glutCreateWindow("Projeto_CG");
-		
-	// Required callback registry 
-	glutDisplayFunc(renderScene);
-	glutReshapeFunc(changeSize);
-	glutIdleFunc(renderScene);
 
 
-	
-	// put here the registration of the keyboard callbacks (por enquanto só mexem na camara como forma de debug)
-	glutKeyboardFunc(keyProc);
-	glutSpecialFunc(specKeyProc);
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowPosition(100, 100);
+    glutInitWindowSize(800, 800);
+    glutCreateWindow("Projeto_CG");
 
+    glutDisplayFunc(renderScene);
+    glutReshapeFunc(changeSize);
+    glutIdleFunc(renderScene);
+    glutSpecialFunc(keyboardspecial);
+    glutKeyboardFunc(keyboardFunc);
 
-	// OpenGL settings
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	
-	// enter GLUT's main cycle
-	glutMainLoop();
-	
-	freeL(figuras);
-	deleteConfig(configuration); // aqui, a List models já é apagada automaticamente, por isso é que não se pode fazer delete como foi dito na linha "List models = getModels(configuration);..."
-	return 1;
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+
+    readFile("../plane.3d");
+    //readFile("../box.3d");
+    //readFile("../cone.3d");
+    //readFile("../sphere.3d");
+
+    glutMainLoop();
+
+    return 1;
 }
