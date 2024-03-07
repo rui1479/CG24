@@ -2,6 +2,9 @@
 #include "../utils/point.hpp"
 #include "../utils/list.hpp"
 #include "plane.hpp"
+#include "box.hpp"
+#include "cone.hpp"
+#include "sphere.hpp"
 #include <string.h>
 #include <stdlib.h>
 #include <iostream>
@@ -27,28 +30,28 @@ int main(int argc, char *argv[]) {
             file_path = argv[4];
 
             // Generate the plane
-            primitive = generatePlaneXZ(length, divisions);
+            primitive = generatePlaneXZ(length, divisions, 0.0, 0);
         }
         else if (strcmp(argv[1], "box") == 0) {
-            //int length = atoi(argv[2]), divisions = atoi(argv[3]);
-            //file_path = argv[4];
+            int length = atoi(argv[2]), divisions = atoi(argv[3]);
+            file_path = argv[4];
 
             // Generate the box
-            //primitive = generateBox(length, divisions);
+            primitive = generateBox(length, divisions);
         }
         else if (strcmp(argv[1], "sphere") == 0) {
-            //int radius = atoi(argv[2]), slices = atoi(argv[3]), stacks = atoi(argv[4]);
-            //file_path = argv[5];
+            int radius = atoi(argv[2]), slices = atoi(argv[3]), stacks = atoi(argv[4]);
+            file_path = argv[5];
 
             // Generate the sphere
-            //primitive = generateSphere(radius, slices, stacks);
+            primitive = generateSphere(radius, slices, stacks);
         }
         else if (strcmp(argv[1], "cone") == 0) {
-           //int radius = atoi(argv[2]), height = atoi(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
-            //file_path = argv[6];
+           int radius = atoi(argv[2]), height = atoi(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
+            file_path = argv[6];
 
             // Generate the cone
-            //primitive = generateCone(radius, height, slices, stacks);
+            primitive = generateCone(radius, height, slices, stacks);
         }
         else {
             // Invalid shape

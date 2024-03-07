@@ -131,7 +131,7 @@ void renderScene(void) {
 
     // clear buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     // set the camera
     glLoadIdentity();
     gluLookAt(camx, camy, camz,
@@ -150,15 +150,15 @@ void renderScene(void) {
     glBegin(GL_TRIANGLES);
 
 
-    for (; i < vertexes.size(); i += 6) {
-        glColor3f(0.0, 0.0, 1.0);
+    for (; i < vertexes.size(); i += 3) {
+        glColor3f(1.0, 1.0, 1.0);
         glVertex3f(vertexes[i].x, vertexes[i].y, vertexes[i].z);
         glVertex3f(vertexes[i + 1].x, vertexes[i + 1].y, vertexes[i + 1].z);
         glVertex3f(vertexes[i + 2].x, vertexes[i + 2].y, vertexes[i + 2].z);
-        glColor3f(1.0, 0.0, 0.0);
-        glVertex3f(vertexes[i + 3].x, vertexes[i + 3].y, vertexes[i + 3].z);
-        glVertex3f(vertexes[i + 4].x, vertexes[i + 4].y, vertexes[i + 4].z);
-        glVertex3f(vertexes[i + 5].x, vertexes[i + 5].y, vertexes[i + 5].z);
+        //glColor3f(1.0, 1.0, 1.0);
+        //glVertex3f(vertexes[i + 3].x, vertexes[i + 3].y, vertexes[i + 3].z);
+        //glVertex3f(vertexes[i + 4].x, vertexes[i + 4].y, vertexes[i + 4].z);
+        //glVertex3f(vertexes[i + 5].x, vertexes[i + 5].y, vertexes[i + 5].z);
     }
 
 
@@ -240,6 +240,7 @@ void keyboardFunc(unsigned char key, int x, int y) {
 }
 
 void lerXML(string fich) {
+    
     tinyxml2::XMLDocument doc;
     tinyxml2::XMLElement *root;
 
@@ -259,7 +260,7 @@ void lerXML(string fich) {
 
 int main(int argc, char** argv) {
     
-    if (argc > 1){
+   if (argc > 1){
         lerXML(argv[1]);
      }
 
@@ -279,7 +280,7 @@ int main(int argc, char** argv) {
     glEnable(GL_CULL_FACE);
 
     //readFile("../plane.3d");
-    //readFile("../box.3d");
+    //readFile("/Users/flaviodrsousa/Desktop/CG24/Fase1/box.3d");
     //readFile("../cone.3d");
     //readFile("../sphere.3d");
 

@@ -1,6 +1,5 @@
-#include "plane.hpp"
 #include <algorithm>
-
+#include "box.hpp"
 
 Primitive generateBox(int length, int divisions){
     Primitive box = newEmptyPrimitive();
@@ -19,12 +18,14 @@ Primitive generateBox(int length, int divisions){
         addPontos(box, faceLateral2);
         addPontos(box, faceLateral3);
         addPontos(box, faceLateral4);
+        /*
         freePri(faceCima);
         freePri(faceBaixo);
         freePri(faceLateral1);
         freePri(faceLateral2);
         freePri(faceLateral3);
         freePri(faceLateral4);
+        */
     }
     return box;
 }

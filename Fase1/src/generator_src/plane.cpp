@@ -1,8 +1,10 @@
 #include "plane.hpp"
 #include <algorithm>
 
-Primitive generatePlaneXZ(int length, int divisions, float h = 0.0f, int bottom = 0) {
+Primitive generatePlaneXZ(int length, int divisions, float h, int bottom) {
     Primitive plano = newEmptyPrimitive();
+    h = 0.0f;
+    bottom = 0;
 
     if (plano) {
         float dimension2 = static_cast<float>(length) / 2;
@@ -44,7 +46,7 @@ Primitive generatePlaneXZ(int length, int divisions, float h = 0.0f, int bottom 
 }
 
 
-Primitive generatePlaneXY(int length, int divisions, float h = 0.0f, int face = 0) {
+Primitive generatePlaneXY(int length, int divisions, float h, int face) {
     Primitive plano = newEmptyPrimitive();
 
     if (plano) {
@@ -87,7 +89,7 @@ Primitive generatePlaneXY(int length, int divisions, float h = 0.0f, int face = 
 }
 
 
-Primitive generatePlaneYZ(int length, int divisions, float w = 0.0f, int face = 0) {
+Primitive generatePlaneYZ(int length, int divisions, float w, int face) {
     Primitive plano = newEmptyPrimitive();
 
     if (plano) {
