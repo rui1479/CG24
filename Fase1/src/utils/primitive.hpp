@@ -30,6 +30,15 @@ Primitive newPrimitiveFromList(List pontos);
  */
 List getPontos(Primitive pri);
 
+/**
+ * Adds points from one primitive to another.
+ *
+ * @param f The primitive to which points will be added.
+ * @param toAdd The primitive from which points will be added.
+ */
+void addPontos(Primitive f, Primitive toAdd);
+
+
 // Other Functions
 
 /**

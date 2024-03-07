@@ -34,6 +34,15 @@ List getPontos(Primitive pri){
 return NULL;
 }
 
+void addPontos(Primitive f, Primitive toAdd){
+    if(f){
+        List pontos = toAdd->pontos;
+        for(unsigned long i = 0; i < calculateLength(pontos); i++){
+            addValueList(f->pontos,getDataByIndex(pontos,i));
+        }
+    }
+}
+
 //others
 void primitiveToFile(Primitive pri, const char* path) {
     if (!pri || !pri->pontos || !path) {
