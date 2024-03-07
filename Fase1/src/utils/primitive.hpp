@@ -10,6 +10,7 @@
 typedef struct primitive* Primitive;
 
 // Constructors
+Primitive newEmptyPrimitive();
 
 /**
  * Creates a new primitive based on an existing list of points.

@@ -9,15 +9,11 @@
 #ifdef __APPLE
 #include <GLUT/glut.h>
 #else
-#include <GL/glut.h>
+#include <glut.h>
 #endif
 #undef _NO_CRT_STDIO_INLINE
+#include "../tinyXML/tinyxml2.hpp"
 
-
-
-#ifndef MY_EXIT_DEFINITION
-#include <windows.h>
-#endif
 
 
 using namespace std;
@@ -41,6 +37,7 @@ vector<Point> vertexes;
 
 
 void readFile(string fich) {
+    std::cout << "\n" << fich << "\n";
     string linha;
     string novo;
     string delimiter = ",";
@@ -242,9 +239,30 @@ void keyboardFunc(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
+void lerXML(string fich) {
+    tinyxml2::XMLDocument doc;
+    tinyxml2::XMLElement *root;
+
+
+    if (!(doc.LoadFile(fich.c_str()))) {
+        root = doc.FirstChildElement();
+        for (tinyxml2::XMLElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
+            string ficheiro = elem->Attribute("file");
+            cout << "Ficheiro:" << ficheiro << "lido com sucesso" << endl;
+            readFile(ficheiro);
+        }
+    } else {
+        cout << "Ficheiro XML não foi encontrado" << endl;
+    }
+}
 
 
 int main(int argc, char** argv) {
+    
+    if (argc > 1){
+        lerXML(argv[1]);
+     }
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowPosition(100, 100);
@@ -260,7 +278,7 @@ int main(int argc, char** argv) {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
-    readFile("../plane.3d");
+    //readFile("../plane.3d");
     //readFile("../box.3d");
     //readFile("../cone.3d");
     //readFile("../sphere.3d");
