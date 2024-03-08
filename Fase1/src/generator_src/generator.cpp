@@ -13,13 +13,6 @@ using namespace std;
 #include <math.h>
 
 
-
-//Falta criar as outras funções de criar as formas
-
-
-
-
-//main
 int main(int argc, char *argv[]) {
     if (argc >= 5) {
         Primitive primitive;
@@ -33,7 +26,7 @@ int main(int argc, char *argv[]) {
             primitive = generatePlaneXZ(length, divisions, 0.0, 0);
         }
         else if (strcmp(argv[1], "box") == 0) {
-            int length = atoi(argv[2]), divisions = atoi(argv[3]);
+            float length = atoi(argv[2]), divisions = atoi(argv[3]);
             file_path = argv[4];
 
             // Generate the box
@@ -70,5 +63,3 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-
-//g++ utils/*.cpp generator/generator.cpp

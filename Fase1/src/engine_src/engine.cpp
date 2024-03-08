@@ -28,7 +28,7 @@ float upx = 0.0f;
 float upy = 1.0f;
 float upz = 0.0f;
 float posx = 0, posz = 0, angle = 0, scalex = 1, scaley = 1, scalez = 1;
-
+float fov = 0, near = 0, far = 0;
 struct Point {
     float x, y, z;
 };
@@ -85,26 +85,20 @@ void readFile(string fich) {
 
 
 void changeSize(int w, int h) {
-
     // Prevent a divide by zero, when window is too short
     // (you cant make a window with zero width).
     if (h == 0)
         h = 1;
-
     // compute window's aspect ratio
     float ratio = w * 1.0 / h;
-
     // Set the projection matrix as current
     glMatrixMode(GL_PROJECTION);
     // Load Identity Matrix
     glLoadIdentity();
-
     // Set the viewport to be the entire window
     glViewport(0, 0, w, h);
-
     // Set perspective
     gluPerspective(45.0f, ratio, 1.0f, 1000.0f);
-
     // return to the model view matrix mode
     glMatrixMode(GL_MODELVIEW);
 }
@@ -129,19 +123,14 @@ void draw_axis() {
 void renderScene(void) {
     int i = 0, j = 3;
 
-    // clear buffers
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    // set the camera
     glLoadIdentity();
     gluLookAt(camx, camy, camz,
         lookAtx, lookAty, lookAtz,
         upx, upy, upz);
 
-    // put drawing instructions here
-    // linhas dos eixos
     draw_axis();
-    // put the geometric transformations here;
     glTranslatef(posx, 0.0, posz);
     glRotatef(angle, 0.0, 1.0, 0.0);
     glScalef(scalex, scaley, scalez);
@@ -155,10 +144,6 @@ void renderScene(void) {
         glVertex3f(vertexes[i].x, vertexes[i].y, vertexes[i].z);
         glVertex3f(vertexes[i + 1].x, vertexes[i + 1].y, vertexes[i + 1].z);
         glVertex3f(vertexes[i + 2].x, vertexes[i + 2].y, vertexes[i + 2].z);
-        //glColor3f(1.0, 1.0, 1.0);
-        //glVertex3f(vertexes[i + 3].x, vertexes[i + 3].y, vertexes[i + 3].z);
-        //glVertex3f(vertexes[i + 4].x, vertexes[i + 4].y, vertexes[i + 4].z);
-        //glVertex3f(vertexes[i + 5].x, vertexes[i + 5].y, vertexes[i + 5].z);
     }
 
 
@@ -239,21 +224,77 @@ void keyboardFunc(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
-void lerXML(string fich) {
-    
+void lerXML(const string& fich) {
     tinyxml2::XMLDocument doc;
-    tinyxml2::XMLElement *root;
+    tinyxml2::XMLElement* root;
 
+    if (doc.LoadFile(fich.c_str()) == tinyxml2::XML_SUCCESS) {
+        root = doc.FirstChildElement("world");
+        if (root) {
+            // Process window element
+            tinyxml2::XMLElement* windowElem = root->FirstChildElement("window");
+            if (windowElem) {
+                int width, height;
+                windowElem->QueryIntAttribute("width", &width);
+                windowElem->QueryIntAttribute("height", &height);
+                cout << "Window Width: " << width << ", Height: " << height << endl;
+            }
 
-    if (!(doc.LoadFile(fich.c_str()))) {
-        root = doc.FirstChildElement();
-        for (tinyxml2::XMLElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
-            string ficheiro = elem->Attribute("file");
-            cout << "Ficheiro:" << ficheiro << "lido com sucesso" << endl;
-            readFile(ficheiro);
+            // Process camera element
+            tinyxml2::XMLElement* cameraElem = root->FirstChildElement("camera");
+            if (cameraElem) {
+            
+                tinyxml2::XMLElement* positionElem = cameraElem->FirstChildElement("position");
+                if (positionElem) {
+                positionElem->QueryFloatAttribute("x", &camx);
+                positionElem->QueryFloatAttribute("y", &camy);
+                positionElem->QueryFloatAttribute("z", &camz);
+                cout << "Camera Position: x=" << camx << ", y=" << camy << ", z=" << camz << endl;
+                }
+
+                tinyxml2::XMLElement* lookAtElem = cameraElem->FirstChildElement("lookAt");
+                if (lookAtElem) {
+                lookAtElem->QueryFloatAttribute("x", &lookAtx);
+                lookAtElem->QueryFloatAttribute("y", &lookAty);
+                lookAtElem->QueryFloatAttribute("z", &lookAtz);
+                cout << "Camera LookAt: x=" << lookAtx << ", y=" << lookAty << ", z=" << lookAtz << endl;
+                }
+
+                tinyxml2::XMLElement* upElem = cameraElem->FirstChildElement("up");
+                if (upElem) {
+                upElem->QueryFloatAttribute("x", &upx);
+                upElem->QueryFloatAttribute("y", &upy);
+                upElem->QueryFloatAttribute("z", &upz);
+                cout << "Camera Up: x=" << upx << ", y=" << upy << ", z=" << upz << endl;
+                }
+
+                tinyxml2::XMLElement* projectionElem = cameraElem->FirstChildElement("projection");
+                if (projectionElem) {
+                projectionElem->QueryFloatAttribute("fov", &fov);
+                projectionElem->QueryFloatAttribute("near", &near);
+                projectionElem->QueryFloatAttribute("far", &far);
+                cout << "Camera Projection: FOV=" << fov << ", Near=" << near << ", Far=" << far << endl;
+                }
+            }
+
+            // Process group element
+            tinyxml2::XMLElement* groupElem = root->FirstChildElement("group");
+            if (groupElem) {
+                tinyxml2::XMLElement* modelsElem = groupElem->FirstChildElement("models");
+                if (modelsElem) {
+                    for (tinyxml2::XMLElement* modelElem = modelsElem->FirstChildElement("model"); modelElem; modelElem = modelElem->NextSiblingElement("model")) {
+                        const char* fileAttr = modelElem->Attribute("file");
+                        if (fileAttr) {
+                            string ficheiro(fileAttr);
+                            cout << "Model File: " << ficheiro << " read successfully" << endl;
+                            readFile(ficheiro);
+                        }
+                    }
+                }
+            }
         }
     } else {
-        cout << "Ficheiro XML não foi encontrado" << endl;
+        cout << "XML file not found" << endl;
     }
 }
 
@@ -278,11 +319,6 @@ int main(int argc, char** argv) {
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
-
-    //readFile("../plane.3d");
-    //readFile("/Users/flaviodrsousa/Desktop/CG24/Fase1/box.3d");
-    //readFile("../cone.3d");
-    //readFile("../sphere.3d");
 
     glutMainLoop();
 

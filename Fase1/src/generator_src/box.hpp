@@ -6,6 +6,6 @@
 #include "../utils/primitive.hpp"
 #include "plane.hpp"
 
-Primitive generateBox(int dimension, int divisionsPerEdge);
+Primitive generateBox(float dimension, int divisionsPerEdge);
 
 #endif

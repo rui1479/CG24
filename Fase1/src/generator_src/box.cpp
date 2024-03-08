@@ -1,31 +1,118 @@
 #include <algorithm>
 #include "box.hpp"
+#include <vector>
 
-Primitive generateBox(int length, int divisions){
+Primitive generateBox(float size, int divisions) {
     Primitive box = newEmptyPrimitive();
-    if (box){// se deu NULL, é porque houve erros
-        float dimension2 = (float)length / 2; //, div_side = (float)length/divisions;
-        Primitive faceCima, faceBaixo, faceLateral1, faceLateral2, faceLateral3, faceLateral4;
-        faceCima = generatePlaneXZ(length, divisions, dimension2, 0);
-        faceBaixo = generatePlaneXZ(length, divisions, -dimension2, 1);
-        faceLateral1 = generatePlaneXY(length, divisions, -dimension2, 0);
-        faceLateral2 = generatePlaneXY(length, divisions, dimension2, 1);
-        faceLateral3 = generatePlaneYZ(length, divisions, -dimension2, 0);
-        faceLateral4 = generatePlaneYZ(length, divisions, dimension2, 1);
-        addPontos(box, faceCima);  // face de baixo do cubo
-        addPontos(box, faceBaixo); // face de cima do cubo
-        addPontos(box, faceLateral1);
-        addPontos(box, faceLateral2);
-        addPontos(box, faceLateral3);
-        addPontos(box, faceLateral4);
-        /*
-        freePri(faceCima);
-        freePri(faceBaixo);
-        freePri(faceLateral1);
-        freePri(faceLateral2);
-        freePri(faceLateral3);
-        freePri(faceLateral4);
-        */
+    float step = size / divisions;
+
+    for (int i = 0; i < divisions; i++) {
+        for (int j = 0; j < divisions; j++) {
+            float x1 = -size / 2 + i * step;
+            float z1 = -size / 2 + j * step;
+            float y1 = size / 2;
+
+            float x2 = -size / 2 + (i + 1) * step;
+            float z2 = -size / 2 + j * step;
+            float y2 = size / 2;
+
+            float x3 = -size / 2 + i * step;
+            float z3 = -size / 2 + (j + 1) * step;
+            float y3 = size / 2;
+
+            float x4 = -size / 2 + (i + 1) * step;
+            float z4 = -size / 2 + (j + 1) * step;
+            float y4 = size / 2;
+
+            addValueList(getPontos(box), newPoint(x3, y3, z3));
+            addValueList(getPontos(box), newPoint(x2, y2, z2));
+            addValueList(getPontos(box), newPoint(x1, y1, z1));
+
+            addValueList(getPontos(box), newPoint(x3, y3, z3));
+            addValueList(getPontos(box), newPoint(x4, y4, z4));
+            addValueList(getPontos(box), newPoint(x2, y2, z2));
+
+            addValueList(getPontos(box), newPoint(x3, -y3, z3));
+            addValueList(getPontos(box), newPoint(x1, -y1, z1));
+            addValueList(getPontos(box), newPoint(x2, -y2, z2));
+
+            addValueList(getPontos(box), newPoint(x3, -y3, z3));
+            addValueList(getPontos(box), newPoint(x2, -y2, z2));
+            addValueList(getPontos(box), newPoint(x4, -y4, z4));
+        }
     }
+
+    for (int i = 0; i < divisions; i++) {
+        for (int j = 0; j < divisions; j++) {
+            float x1 = -size / 2 + i * step;
+            float y1 = -size / 2 + j * step;
+            float z1 = size / 2;
+
+            float x2 = -size / 2 + (i + 1) * step;
+            float y2 = -size / 2 + j * step;
+            float z2 = size / 2;
+
+            float x3 = -size / 2 + i * step;
+            float y3 = -size / 2 + (j + 1) * step;
+            float z3 = size / 2;
+
+            float x4 = -size / 2 + (i + 1) * step;
+            float y4 = -size / 2 + (j + 1) * step;
+            float z4 = size / 2;
+
+            addValueList(getPontos(box), newPoint(x3, y3, -z3));
+            addValueList(getPontos(box), newPoint(x2, y2, -z2));
+            addValueList(getPontos(box), newPoint(x1, y1, -z1));
+
+            addValueList(getPontos(box), newPoint(x3, y3, -z3));
+            addValueList(getPontos(box), newPoint(x4, y4, -z4));
+            addValueList(getPontos(box), newPoint(x2, y2, -z2));
+
+            addValueList(getPontos(box), newPoint(x3, y3, z3));
+            addValueList(getPontos(box), newPoint(x1, y1, z1));
+            addValueList(getPontos(box), newPoint(x2, y2, z2));
+
+            addValueList(getPontos(box), newPoint(x3, y3, z3));
+            addValueList(getPontos(box), newPoint(x2, y2, z2));
+            addValueList(getPontos(box), newPoint(x4, y4, z4));
+        }
+    }
+
+    for (int i = 0; i < divisions; i++) {
+        for (int j = 0; j < divisions; j++) {
+            float z1 = -size / 2 + i * step;
+            float y1 = -size / 2 + j * step;
+            float x1 = size / 2;
+
+            float z2 = -size / 2 + (i + 1) * step;
+            float y2 = -size / 2 + j * step;
+            float x2 = size / 2;
+
+            float z3 = -size / 2 + i * step;
+            float y3 = -size / 2 + (j + 1) * step;
+            float x3 = size / 2;
+
+            float z4 = -size / 2 + (i + 1) * step;
+            float y4 = -size / 2 + (j + 1) * step;
+            float x4 = size / 2;
+
+            addValueList(getPontos(box), newPoint(-x3, y3, z3));
+            addValueList(getPontos(box), newPoint(-x1, y1, z1));
+            addValueList(getPontos(box), newPoint(-x2, y2, z2));
+
+            addValueList(getPontos(box), newPoint(-x3, y3, z3));
+            addValueList(getPontos(box), newPoint(-x2, y2, z2));
+            addValueList(getPontos(box), newPoint(-x4, y4, z4));
+
+            addValueList(getPontos(box), newPoint(x3, y3, -z3));
+            addValueList(getPontos(box), newPoint(x1, y1, -z1));
+            addValueList(getPontos(box), newPoint(x2, y2, -z2));
+
+            addValueList(getPontos(box), newPoint(x3, y3, -z3));
+            addValueList(getPontos(box), newPoint(x2, y2, -z2));
+            addValueList(getPontos(box), newPoint(x4, y4, -z4));
+        }
+    }
+
     return box;
 }
