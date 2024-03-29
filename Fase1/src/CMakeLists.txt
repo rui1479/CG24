@@ -17,13 +17,17 @@ set(SOURCE_FILES
 # Set Toolkits_DIR
 set(TOOLKITS_FOLDER "" CACHE PATH "Path to Toolkits folder")
 
-# Set TinyXML directory
-set(TINYXML_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/tinyXML")
+# Set TinyXML directory for windows
+set(TINYXML_FOLDER "C:/Users/diogo/Documents/GitHub/CG24/Fase1/src/tinyXML")
 
-# Add TinyXML library
+# Add TinyXML library windows
 add_library(tinyxml2 ${TINYXML_FOLDER}/tinyxml2.cpp)
 
+# Add executable target
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+# Link TinyXML library
+target_link_libraries("${PROJECT_NAME}" tinyxml2)
 
 if(WIN32)
     # Windows-specific settings
@@ -31,7 +35,7 @@ if(WIN32)
         message(FATAL_ERROR "GLUT not found")
     endif()
 
-    include_directories(${TOOLKITS_FOLDER}/glut)
+    include_directories(${TOOLKITS_FOLDER}/glut ${TINYXML_FOLDER})
     target_link_libraries(${PROJECT_NAME} ${TOOLKITS_FOLDER}/glut/glut32.lib)
 
     if(EXISTS "${TOOLKITS_FOLDER}/glut/glut32.dll")

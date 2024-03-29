@@ -5,14 +5,13 @@
 #include <string>
 #include <vector>
 #include <list>
-//#include <GL/glew.h>
-#ifdef __APPLE
-#include <GLUT/glut.h>
-#else
-#include <glut.h>
-#endif
+
+
+#include <GL/glut.h>
+
 #undef _NO_CRT_STDIO_INLINE
-#include "../tinyXML/tinyxml2.hpp"
+#include "C:/Users/diogo/Documents/GitHub/CG24/Fase1/src/tinyXML/tinyxml2.hpp"
+
 
 
 
