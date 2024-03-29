@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "cctype": "cpp"
+        ".fantomasignore": "ignore",
+        "cctype": "cpp",
+        "cwchar": "cpp"
     }
 }
