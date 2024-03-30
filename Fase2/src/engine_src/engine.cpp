@@ -7,7 +7,12 @@
 #include <list>
 
 
+// do a if include for mac and windows for glut
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
+#endif
 
 #undef _NO_CRT_STDIO_INLINE
 #include "C:/Users/diogo/Documents/GitHub/CG24/Fase1/src/tinyXML/tinyxml2.hpp"
