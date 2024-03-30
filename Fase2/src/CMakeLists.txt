@@ -17,7 +17,7 @@ set(SOURCE_FILES
 set(TOOLKITS_FOLDER "" CACHE PATH "Path to Toolkits folder")
 
 # Set TinyXML directory for windows
-set(TINYXML_FOLDER "C:/Users/ruiri/OneDrive/Documentos/GitHub/CG24/Fase1/src/tinyXML")
+set(TINYXML_FOLDER "" CACHE PATH "Path to TinyXML folder")
 
 # Add TinyXML library windows
 add_library(tinyxml2 ${TINYXML_FOLDER}/tinyxml2.cpp)
