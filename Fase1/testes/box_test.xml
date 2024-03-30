@@ -8,7 +8,7 @@
     </camera>
 	<group> 
   		<models> 
-			<model file="/Users/flaviodrsousa/Desktop/CG24/Fase1/outputs/box.3d" /> <!-- generator box 2 3 box_2_3.3d -->
+			<model file="../Fase1/outputs/box.3d" /> <!-- generator box 2 3 box_2_3.3d -->
  		</models>
  	</group>
 </world>

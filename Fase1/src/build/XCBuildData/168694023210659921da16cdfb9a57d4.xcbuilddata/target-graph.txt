@@ -1,0 +1,11 @@
+Target dependency graph (4 targets)
+Target 'ALL_BUILD' in project 'engine'
+➜ Explicit dependency on target 'tinyxml2' in project 'engine'
+➜ Explicit dependency on target 'engine' in project 'engine'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'engine'
+Target 'engine' in project 'engine'
+➜ Explicit dependency on target 'tinyxml2' in project 'engine'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'engine'
+Target 'tinyxml2' in project 'engine'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'engine'
+Target 'ZERO_CHECK' in project 'engine' (no dependencies)
