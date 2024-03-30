@@ -1,0 +1,16 @@
+# Ignore all .o files
+*.o
+
+# Ignore all executables
+*
+!*.cpp
+!*.h
+!*.c
+!*.hpp
+!*.txt
+!*.md
+!*.json
+!*.xml
+!*.yml
+!*.yaml
+!*.gitignore
