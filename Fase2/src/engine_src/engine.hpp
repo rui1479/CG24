@@ -5,7 +5,7 @@
 #endif
 
 #include <math.h>
-#include "C:/Users/diogo/Documents/GitHub/CG24/Fase1/src/tinyXML/tinyxml2.hpp"
+#include "../tinyXML/tinyxml2.hpp"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
