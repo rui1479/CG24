@@ -72,7 +72,7 @@ void changeSize(int w, int h) {
 
 //funcao desenha
 //pega na lista de pontos e vai percorrer a mesma usando um iterador, a cada 3 pontos desenha um triangulo
-//desta forma, cada itera��o do ciclo for 3 pontos e um triangulo sao desenhados avan�ando assim o iterador em 3 posi�oes
+//desta forma, cada iteraçao do ciclo for 3 pontos e um triangulo sao desenhados avan�ando assim o iterador em 3 posiçoes
 void drawPontos(list<Ponto> pontosLista) {
 	for (auto it = pontosLista.begin(); it != pontosLista.end(); ) {
 		if (distance(it, pontosLista.end()) < 3) {
@@ -169,7 +169,7 @@ void renderScene(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-	//modo de desenho, come�a com linhas por defeito
+	//modo de desenho, começa com linhas por defeito
 	glPolygonMode(GL_FRONT_AND_BACK, tipo);
 	
 
@@ -255,7 +255,7 @@ void processMouseMotion(int x, int y)
 
 
 
-//funcao que l� cada ficheiro .3d a partir do seu caminho
+//funcao que le cada ficheiro .3d a partir do seu caminho
 //preenchendo a lista de pontos com os pontos lidos do ficheiro
 
 list<Ponto> readFile(string caminho3d) {
@@ -398,7 +398,7 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 				(*grupo).addModelo(modelAtual);
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "ring.3d") == 0) {
-				cout << "Encontrei cone" << endl;
+				cout << "Encontrei ring" << endl;
 				modelAtual.setPontos(readFile("../outputs/ring.3d"));
 				(*grupo).addModelo(modelAtual);
 			}
@@ -450,20 +450,20 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 }
 
 
-//funcao que le o ficheiro.xml da pasta ../xml/ 
+//funcao que le o ficheiro.xml da pasta testes
 void readXML(string file) {
 	XMLDocument xml;
 	XMLDocument xmltv;
 	string s;
-	if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {  //condicao que carrega o ficheiro e testa se � v�lido
+	if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {  //condicao que carrega o ficheiro e testa se é valido
 		cout << "Ficheiro lido com sucesso" << endl;
 
 		XMLElement* elemento = xml.FirstChildElement("world")->FirstChildElement("group");    //pega no elemento world do xml
-		while (elemento != nullptr) {                  //avan�a at� ser null
+		while (elemento != nullptr) {                  //avança até ser null
 			Grupo g = *new Grupo();
 			readGrupo(&g, elemento);									
 			gruposLista.push_back(g);
-			elemento = elemento->NextSiblingElement();     //avan�a para o proximo
+			elemento = elemento->NextSiblingElement();     //avança para o proximo
 		}
 
 		//Camara
@@ -520,7 +520,7 @@ void readXML(string file) {
 }
 
 
-//funcao que d� fun��o �s teclas premidas
+//funcao que da funçao às teclas premidas
 void keyboard(unsigned char key, int x, int y)
 {
 	if (key == 'e') {
