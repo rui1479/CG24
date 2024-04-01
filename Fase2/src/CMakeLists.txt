@@ -8,6 +8,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Add your source files here
 set(SOURCE_FILES 
     engine_src/engine.cpp 
+    engine_src/grupo.cpp
+    engine_src/modelo.cpp
+    engine_src/transformacoes.cpp
+    engine_src/ponto.cpp
     utils/point.cpp
     utils/list.cpp
     utils/primitive.cpp
