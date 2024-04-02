@@ -296,74 +296,92 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 	int linhaTrans = -1, linhaRot = -1, linhaScale = -1;
 	XMLElement* elementoAux = elementoXml->FirstChildElement("transform");
 
-	XMLElement* translacaoElemento = elementoAux->FirstChildElement("translate");
-	if (translacaoElemento != nullptr) {
+	if (elementoAux != nullptr) {
+		XMLElement* translacaoElemento = elementoAux->FirstChildElement("translate");
+		if (translacaoElemento != nullptr) {
 
-		cout << "translate" << endl;
-		linhaTrans = translacaoElemento->GetLineNum();
+			cout << "translate" << endl;
+			linhaTrans = translacaoElemento->GetLineNum();
 
-		float x = 0, y = 0, z = 0;
-		if (translacaoElemento->Attribute("x") != nullptr) {
-			x = stof(translacaoElemento->Attribute("x"));
+			float x = 0, y = 0, z = 0;
+			if (translacaoElemento->Attribute("x") != nullptr) {
+				x = stof(translacaoElemento->Attribute("x"));
+			}
+			if (translacaoElemento->Attribute("y") != nullptr) {
+				y = stof(translacaoElemento->Attribute("y"));
+			}
+			if (translacaoElemento->Attribute("z") != nullptr) {
+				z = stof(translacaoElemento->Attribute("z"));
+			}
+			cout << x << endl;
+			cout << y << endl;
+			cout << z << endl;
+			Translacao t = *new Translacao(x, y, z);
+			(*grupo).setTranslacao(t);
 		}
-		if (translacaoElemento->Attribute("y") != nullptr) {
-			y = stof(translacaoElemento->Attribute("y"));
+		else {
+			cout << "nao tem translate" << endl;
 		}
-		if (translacaoElemento->Attribute("z") != nullptr) {
-			z = stof(translacaoElemento->Attribute("z"));
-		}
-		cout << x << endl;
-		cout << y << endl;
-		cout << z << endl;
-		Translacao t = *new Translacao(x, y, z);
-		(*grupo).setTranslacao(t);
-	}
-
-
-	XMLElement* rotacaoElemento = elementoAux->FirstChildElement("rotate");
-	if (rotacaoElemento != nullptr) {
-
-
-		linhaRot = rotacaoElemento->GetLineNum();
-
-		float angulo = 0, x = 0, y = 0, z = 0;
-		if (rotacaoElemento->Attribute("angle") != nullptr) {
-			angulo = stof(rotacaoElemento->Attribute("angle"));
-		}
-		if (rotacaoElemento->Attribute("x") != nullptr) {
-			x = stof(rotacaoElemento->Attribute("x"));
-		}
-		if (rotacaoElemento->Attribute("y") != nullptr) {
-			y = stof(rotacaoElemento->Attribute("y"));
-		}
-		if (rotacaoElemento->Attribute("z") != nullptr) {
-			z = stof(rotacaoElemento->Attribute("z"));
-		}
-		Rotacao r = *new Rotacao(x, y, z, angulo);
-		(*grupo).setRotacao(r);
 
 	}
 
+	
 
-	XMLElement* escaloElemento = elementoAux->FirstChildElement("scale");
-	if (escaloElemento != nullptr) {
+	if (elementoAux != nullptr) {
+		XMLElement* rotacaoElemento = elementoAux->FirstChildElement("rotate");
+		if (rotacaoElemento != nullptr) {
 
-		linhaScale = escaloElemento->GetLineNum();
+			linhaRot = rotacaoElemento->GetLineNum();
 
-		float x = 0, y = 0, z = 0;
-		if (escaloElemento->Attribute("x") != nullptr) {
-			x = stof(escaloElemento->Attribute("x"));
+			float angulo = 0, x = 0, y = 0, z = 0;
+			if (rotacaoElemento->Attribute("angle") != nullptr) {
+				angulo = stof(rotacaoElemento->Attribute("angle"));
+			}
+			if (rotacaoElemento->Attribute("x") != nullptr) {
+				x = stof(rotacaoElemento->Attribute("x"));
+			}
+			if (rotacaoElemento->Attribute("y") != nullptr) {
+				y = stof(rotacaoElemento->Attribute("y"));
+			}
+			if (rotacaoElemento->Attribute("z") != nullptr) {
+				z = stof(rotacaoElemento->Attribute("z"));
+			}
+			Rotacao r = *new Rotacao(x, y, z, angulo);
+			(*grupo).setRotacao(r);
+
 		}
-		if (escaloElemento->Attribute("y") != nullptr) {
-			y = stof(escaloElemento->Attribute("y"));
+		else {
+			cout << "nao tem rotate" << endl;
 		}
-		if (escaloElemento->Attribute("z") != nullptr) {
-			z = stof(escaloElemento->Attribute("z"));
-		}
-		Escala e = *new Escala(x, y, z);
-		(*grupo).setEscala(e);
 
 	}
+	
+	if (elementoAux != nullptr) {
+		XMLElement* escaloElemento = elementoAux->FirstChildElement("scale");
+		if (escaloElemento != nullptr) {
+
+			linhaScale = escaloElemento->GetLineNum();
+
+			float x = 0, y = 0, z = 0;
+			if (escaloElemento->Attribute("x") != nullptr) {
+				x = stof(escaloElemento->Attribute("x"));
+			}
+			if (escaloElemento->Attribute("y") != nullptr) {
+				y = stof(escaloElemento->Attribute("y"));
+			}
+			if (escaloElemento->Attribute("z") != nullptr) {
+				z = stof(escaloElemento->Attribute("z"));
+			}
+			Escala e = *new Escala(x, y, z);
+			(*grupo).setEscala(e);
+
+		}
+		else {
+			cout << "nao tem scale" << endl;
+		}
+
+	}	
+
 
 
 	XMLElement* modelosXML = elementoXml->FirstChildElement("models");
