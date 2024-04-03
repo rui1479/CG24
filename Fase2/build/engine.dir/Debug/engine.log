@@ -2,5 +2,9 @@
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(122,20): warning C4018: '<': incompatibilidade de signed/unsigned
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(127,20): warning C4018: '<': incompatibilidade de signed/unsigned
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(137,20): warning C4018: '<': incompatibilidade de signed/unsigned
+  grupo.cpp
+  modelo.cpp
+  Gerando Código...
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(290): warning C4715: 'readFile': nem todos os caminhos de controle retornam um valor
+  LINK : C:\Users\diogo\Documents\GitHub\CG24\Fase2\build\Debug\engine.exe não encontrado ou não compilado pelo o último link incremental; executando link completo
   engine.vcxproj -> C:\Users\diogo\Documents\GitHub\CG24\Fase2\build\Debug\engine.exe

@@ -391,34 +391,38 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 		while (modeloAtualXML != nullptr) {
 
-			Modelo modelAtual = *new Modelo();
+			Modelo* modelAtual = new Modelo();
+			if ((modelAtual) == nullptr) {
+				cout << "Erro ao criar o modelo" << endl;
+				return;
+			}
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "sphere.3d") == 0) {
 				cout << "Encontrei sphere" << endl;
-				modelAtual.setPontos(readFile("../outputs/sphere.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual->setPontos(readFile("../outputs/sphere.3d"));
+				grupo->addModelo(*modelAtual);
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "cone.3d") == 0) {
 				cout << "Encontrei cone" << endl;
-				modelAtual.setPontos(readFile("../outputs/cone.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual->setPontos(readFile("../outputs/cone.3d"));
+				grupo->addModelo(*modelAtual);
 			}
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "plane.3d") == 0) {
 				cout << "Encontrei plane" << endl;
-				modelAtual.setPontos(readFile("../outputs/plane.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual->setPontos(readFile("../outputs/plane.3d"));
+				grupo->addModelo(*modelAtual);
 
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "box.3d") == 0) {
 				cout << "Encontrei box" << endl;
-				modelAtual.setPontos(readFile("../outputs/box.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual->setPontos(readFile("../outputs/box.3d"));
+				grupo->addModelo(*modelAtual);
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "ring.3d") == 0) {
 				cout << "Encontrei ring" << endl;
-				modelAtual.setPontos(readFile("../outputs/ring.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual->setPontos(readFile("../outputs/ring.3d"));
+				grupo->addModelo(*modelAtual);
 			}
 			modeloAtualXML = modeloAtualXML->NextSiblingElement();
 		}
