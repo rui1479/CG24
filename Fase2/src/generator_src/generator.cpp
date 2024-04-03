@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
             primitive = generateCone(radius, height, slices, stacks);
         }
         else if (strcmp(argv[1], "ring") == 0) {
-           float innerRadius = atoi(argv[2]), outerRadius = atoi(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
+           float innerRadius = atof(argv[2]), outerRadius = atof(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
             file_path = argv[6];
 
             // Generate the cone
