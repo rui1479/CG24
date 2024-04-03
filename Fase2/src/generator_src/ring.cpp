@@ -7,7 +7,7 @@ Primitive generateRing(float innerRadius, float outerRadius, int slices, int sta
     if (ring) {
         float stack_width = static_cast<float>(outerRadius - innerRadius) / stacks;
         float slice_angle = 2.0 * M_PI / slices;
-        float thickness = 0.01f; // Espessura do anel
+        float thickness = 0.1f; // Espessura do anel
 
         for (int i = 0; i <= stacks; i++) {
             float r1 = innerRadius + i * stack_width;
