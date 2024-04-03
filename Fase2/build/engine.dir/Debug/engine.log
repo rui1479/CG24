@@ -2,11 +2,5 @@
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(122,20): warning C4018: '<': incompatibilidade de signed/unsigned
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(127,20): warning C4018: '<': incompatibilidade de signed/unsigned
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(137,20): warning C4018: '<': incompatibilidade de signed/unsigned
-  primitive.cpp
-C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\utils\primitive.cpp(53,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\utils\primitive.cpp(75,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\utils\primitive.cpp(83,9): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\utils\primitive.cpp(91,13): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  Gerando Código...
 C:\Users\diogo\Documents\GitHub\CG24\Fase2\src\engine_src\engine.cpp(290): warning C4715: 'readFile': nem todos os caminhos de controle retornam um valor
   engine.vcxproj -> C:\Users\diogo\Documents\GitHub\CG24\Fase2\build\Debug\engine.exe
