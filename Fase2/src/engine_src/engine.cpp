@@ -590,8 +590,8 @@ int main(int argc, char* argv[]) {
 		readXML(argv[1]);
 	}
 	else {
-		readXML("demo.xml");
-	}
+		readXML("../testes/solar_system.xml");
+		}
 
 
 	// inicialization
