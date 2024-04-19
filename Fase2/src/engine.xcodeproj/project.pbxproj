@@ -1,0 +1,1249 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		101B5AE830B04E70A521A310 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0A99D846B62A41A49C36DA21 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				18D8E59A769C5C7606068C04 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		CEC9C0C756AB4901A385461C /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9CEADFBFAAFA48CDBC90AD3E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				21CAE6E2FAD7908D497C0EC1 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				D5AA3F7F117D4F3B86DABCCC /* PBXTargetDependency */,
+				5F6B2CF221AE4B838CFD5E4C /* PBXTargetDependency */,
+				3DD8F7053B694CAAA557BFAE /* PBXTargetDependency */,
+				094DC6039BE54D75A3FE4B19 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		01E4FEE626A04542BC7E47DB /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/primitive.cpp */ = {isa = PBXBuildFile; fileRef = F0DD2CB03AC647E081B6A5FA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/primitive.cpp */; };
+		0202939D193D40FFA4DC8802 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Cocoa.framework */ = {isa = PBXBuildFile; fileRef = 6B60EDE0D6C544DE8B1F6084 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Cocoa.framework */; };
+		0EF11728C6A64916B362F930 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/grupo.cpp */ = {isa = PBXBuildFile; fileRef = C24B1EAD8C914C5DA6B3D15F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/grupo.cpp */; };
+		1FD2C0C5F87D45059844FDD6 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/engine.cpp */ = {isa = PBXBuildFile; fileRef = FC63A4771ECC40B698B99A59 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/engine.cpp */; };
+		39F719DA895642C9B468E3DB /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 3669ABEC23634E3981019C2F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */; };
+		504F476BC0FB4FEC8335F4D1 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/transformacoes.cpp */ = {isa = PBXBuildFile; fileRef = 9F528E9645A24DEEB6280C6B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/transformacoes.cpp */; };
+		5866CCD886FE4BBA9C1D9E50 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/ponto.cpp */ = {isa = PBXBuildFile; fileRef = 3D84A03EC2B94F0BA50585BF /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/ponto.cpp */; };
+		622B87D3CAF74D2C80C4E4DD /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */ = {isa = PBXBuildFile; fileRef = 25360AFC928A4A11B560880B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */; };
+		6E348C41D3BC4A229B7D4D5F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/modelo.cpp */ = {isa = PBXBuildFile; fileRef = 7A0A5D7B707F431CBA4BFFD5 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/modelo.cpp */; };
+		80CFE3256930414FB5651D1F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D3E50FA89E9C4108B588BB13 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */; };
+		82DD376723D34482817DD77E /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/list.cpp */ = {isa = PBXBuildFile; fileRef = C6C8F8690A594FE59B59D7C0 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/list.cpp */; };
+		8336E507A82E4374B4864E1B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */ = {isa = PBXBuildFile; fileRef = 753065DBE35643CBA1D9113C /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */; };
+		A1A9BED37FE341EAB50EF5A2 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/point.cpp */ = {isa = PBXBuildFile; fileRef = 6474F9A892304170A8E44966 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/point.cpp */; };
+		BF0F771D21CA4DC098043691 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/OpenGL.framework */ = {isa = PBXBuildFile; fileRef = FE56115C6BA547CA9B6BB952 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/OpenGL.framework */; };
+		BFDE82F0A6CC4ADE86EC7CD7 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework */ = {isa = PBXBuildFile; fileRef = A02710EE290241FFAA98879D /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework */; };
+		D963F75E07A044C78698432C /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = A4CAD9CC93A64D6BB96207B2 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */; };
+		E364AD2140724EDFBE30E1F3 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.hpp */ = {isa = PBXBuildFile; fileRef = F0D5EDC53C454335AC4FDAAA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.hpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		1885636EAE194C7AAE4E185B /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		1D01A7DF7A0D49849E0A3F24 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		7313040FC43B4606BD088A0E /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		CDAF4C5E6FF9429682A4B1E9 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		0BA35B9FD5A8461A9D445B0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E83C39001F340EB92375053;
+			remoteInfo = tinyxml2;
+		};
+		1CA85437016F4B58BA5C8AAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101B5AE830B04E70A521A310;
+			remoteInfo = ZERO_CHECK;
+		};
+		24DABB0C4205429D801AD8C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77DA6825826849338727C673;
+			remoteInfo = engine;
+		};
+		3849116214484A878DD66AF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C4D4E7E06A4939BEBB3FA8;
+			remoteInfo = tinyXML;
+		};
+		4ADE293FEA4E4DD6A2297BA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101B5AE830B04E70A521A310;
+			remoteInfo = ZERO_CHECK;
+		};
+		7371814B203E43E0867C7E4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E83C39001F340EB92375053;
+			remoteInfo = tinyxml2;
+		};
+		DEE352615AE84A5E9CDE2AEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101B5AE830B04E70A521A310;
+			remoteInfo = ZERO_CHECK;
+		};
+		F11C9A0B32744B74818ED2F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C4D4E7E06A4939BEBB3FA8;
+			remoteInfo = tinyXML;
+		};
+		F63A2CC715B94D4D90443B72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBA170A0EA34BB1BD56F19B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 101B5AE830B04E70A521A310;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0858789280B14400BC5012C4 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		25360AFC928A4A11B560880B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tinyxml2.cpp; path = tinyXML/tinyxml2.cpp; sourceTree = SOURCE_ROOT; };
+		3669ABEC23634E3981019C2F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		3D84A03EC2B94F0BA50585BF /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/ponto.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ponto.cpp; path = engine_src/ponto.cpp; sourceTree = SOURCE_ROOT; };
+		4DE2C6F972424F0291E520A6 /* tinyXML */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtinyXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6474F9A892304170A8E44966 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/point.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = point.cpp; path = utils/point.cpp; sourceTree = SOURCE_ROOT; };
+		6B60EDE0D6C544DE8B1F6084 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Cocoa.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		753065DBE35643CBA1D9113C /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tinyxml2.cpp; path = tinyXML/tinyxml2.cpp; sourceTree = SOURCE_ROOT; };
+		7A0A5D7B707F431CBA4BFFD5 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/modelo.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = modelo.cpp; path = engine_src/modelo.cpp; sourceTree = SOURCE_ROOT; };
+		7E99AC76D9124E3FA52B698B /* engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = engine; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F528E9645A24DEEB6280C6B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/transformacoes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = transformacoes.cpp; path = engine_src/transformacoes.cpp; sourceTree = SOURCE_ROOT; };
+		A02710EE290241FFAA98879D /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		A4CAD9CC93A64D6BB96207B2 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		BA832E919A43472FB0AA0649 /* tinyxml2 */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtinyxml2.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24B1EAD8C914C5DA6B3D15F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/grupo.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = grupo.cpp; path = engine_src/grupo.cpp; sourceTree = SOURCE_ROOT; };
+		C6C8F8690A594FE59B59D7C0 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/list.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = list.cpp; path = utils/list.cpp; sourceTree = SOURCE_ROOT; };
+		D3E50FA89E9C4108B588BB13 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F0D5EDC53C454335AC4FDAAA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = tinyxml2.hpp; path = tinyXML/tinyxml2.hpp; sourceTree = SOURCE_ROOT; };
+		F0DD2CB03AC647E081B6A5FA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/primitive.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = primitive.cpp; path = utils/primitive.cpp; sourceTree = SOURCE_ROOT; };
+		FC63A4771ECC40B698B99A59 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/engine.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = engine.cpp; path = engine_src/engine.cpp; sourceTree = SOURCE_ROOT; };
+		FE56115C6BA547CA9B6BB952 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/OpenGL.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5107F7A49C574DD0A18EBECF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02019919D3541AC83B84402 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5F2FF33DB0C446FBB067A6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4EF36172E875433998919F2C /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				753065DBE35643CBA1D9113C /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		5ABF1634EE6F410DBE9B47D8 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				25360AFC928A4A11B560880B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		6105684ACF7A4FC78A0B0B2E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		637B7340BDDB424BB37D594B /* tinyxml2 */ = {
+			isa = PBXGroup;
+			children = (
+				5ABF1634EE6F410DBE9B47D8 /* Source Files */,
+				D3E50FA89E9C4108B588BB13 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */,
+			);
+			name = tinyxml2;
+			sourceTree = "<group>";
+		};
+		6A0DB39B91944F1BACCC71B3 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC63A4771ECC40B698B99A59 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/engine.cpp */,
+				C24B1EAD8C914C5DA6B3D15F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/grupo.cpp */,
+				7A0A5D7B707F431CBA4BFFD5 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/modelo.cpp */,
+				3D84A03EC2B94F0BA50585BF /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/ponto.cpp */,
+				9F528E9645A24DEEB6280C6B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/transformacoes.cpp */,
+				C6C8F8690A594FE59B59D7C0 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/list.cpp */,
+				6474F9A892304170A8E44966 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/point.cpp */,
+				F0DD2CB03AC647E081B6A5FA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/primitive.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		6FC11DC5DBA2438A9DBA3F0A /* tinyXML */ = {
+			isa = PBXGroup;
+			children = (
+				4EF36172E875433998919F2C /* Source Files */,
+				A0F5FDA9642F45B1B06DAF8C /* Header Files */,
+				A4CAD9CC93A64D6BB96207B2 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */,
+			);
+			name = tinyXML;
+			sourceTree = "<group>";
+		};
+		9C9C9B0262DB44C0B57D9F05 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				6A0DB39B91944F1BACCC71B3 /* Source Files */,
+				3669ABEC23634E3981019C2F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		A0F5FDA9642F45B1B06DAF8C /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5EDC53C454335AC4FDAAA /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.hpp */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		A5B33874BA0D45BE93EB4718 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A6526191CC394A229FC9EB3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE56115C6BA547CA9B6BB952 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/OpenGL.framework */,
+				A02710EE290241FFAA98879D /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework */,
+				6B60EDE0D6C544DE8B1F6084 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB6A3F72149742E0A0A2856D /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				6105684ACF7A4FC78A0B0B2E /* CMake Rules */,
+				0858789280B14400BC5012C4 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		D35343B10D334D9D9683DA3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E99AC76D9124E3FA52B698B /* engine */,
+				4DE2C6F972424F0291E520A6 /* tinyXML */,
+				BA832E919A43472FB0AA0649 /* tinyxml2 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECB2D9AF43C94022BAC26146 = {
+			isa = PBXGroup;
+			children = (
+				637B7340BDDB424BB37D594B /* tinyxml2 */,
+				6FC11DC5DBA2438A9DBA3F0A /* tinyXML */,
+				9C9C9B0262DB44C0B57D9F05 /* engine */,
+				CB6A3F72149742E0A0A2856D /* ALL_BUILD */,
+				D35343B10D334D9D9683DA3A /* Products */,
+				A6526191CC394A229FC9EB3F /* Frameworks */,
+				A5B33874BA0D45BE93EB4718 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77DA6825826849338727C673 /* engine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7BE4A12EFD84043988F07BC /* Build configuration list for PBXNativeTarget "engine" */;
+			buildPhases = (
+				9D8E095A828B4137BB7968B7 /* Sources */,
+				B02019919D3541AC83B84402 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5D719F11BD74A738A4E987A /* PBXTargetDependency */,
+				14BF963233594641B21C6340 /* PBXTargetDependency */,
+				BCEC2686AC0B4500A3912DA9 /* PBXTargetDependency */,
+			);
+			name = engine;
+			productName = engine;
+			productReference = 7E99AC76D9124E3FA52B698B /* engine */;
+			productType = "com.apple.product-type.tool";
+		};
+		7E83C39001F340EB92375053 /* tinyxml2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1077C2BE56A47CBB0E03045 /* Build configuration list for PBXNativeTarget "tinyxml2" */;
+			buildPhases = (
+				CB20A141C2304B36B0A52A6F /* Sources */,
+				5107F7A49C574DD0A18EBECF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A542B9096A734274B5045F8D /* PBXTargetDependency */,
+			);
+			name = tinyxml2;
+			productName = tinyxml2;
+			productReference = BA832E919A43472FB0AA0649 /* tinyxml2 */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A9C4D4E7E06A4939BEBB3FA8 /* tinyXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88976F66F9444A9E8A90CF45 /* Build configuration list for PBXNativeTarget "tinyXML" */;
+			buildPhases = (
+				981CD534CEF843FDA394D22A /* Sources */,
+				B5F2FF33DB0C446FBB067A6E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16DFFE212F484FB2993F6636 /* PBXTargetDependency */,
+			);
+			name = tinyXML;
+			productName = tinyXML;
+			productReference = 4DE2C6F972424F0291E520A6 /* tinyXML */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEBA170A0EA34BB1BD56F19B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1530;
+			};
+			buildConfigurationList = 9425B3192906484BBC67DD0D /* Build configuration list for PBXProject "engine" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				1D01A7DF7A0D49849E0A3F24 /* Debug */,
+				1885636EAE194C7AAE4E185B /* Release */,
+				7313040FC43B4606BD088A0E /* MinSizeRel */,
+				CDAF4C5E6FF9429682A4B1E9 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = ECB2D9AF43C94022BAC26146;
+			projectDirPath = .;
+			projectRoot = "";
+			targets = (
+				CEC9C0C756AB4901A385461C /* ALL_BUILD */,
+				101B5AE830B04E70A521A310 /* ZERO_CHECK */,
+				77DA6825826849338727C673 /* engine */,
+				A9C4D4E7E06A4939BEBB3FA8 /* tinyXML */,
+				7E83C39001F340EB92375053 /* tinyxml2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18D8E59A769C5C7606068C04 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  make -f /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  make -f /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  make -f /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  make -f /Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		21CAE6E2FAD7908D497C0EC1 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/flaviodrsousa/Desktop/CG24/Fase2/src
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		981CD534CEF843FDA394D22A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8336E507A82E4374B4864E1B /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D8E095A828B4137BB7968B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FD2C0C5F87D45059844FDD6 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/engine.cpp */,
+				0EF11728C6A64916B362F930 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/grupo.cpp */,
+				6E348C41D3BC4A229B7D4D5F /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/modelo.cpp */,
+				5866CCD886FE4BBA9C1D9E50 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/ponto.cpp */,
+				504F476BC0FB4FEC8335F4D1 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/engine_src/transformacoes.cpp */,
+				82DD376723D34482817DD77E /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/list.cpp */,
+				A1A9BED37FE341EAB50EF5A2 /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/point.cpp */,
+				01E4FEE626A04542BC7E47DB /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/utils/primitive.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB20A141C2304B36B0A52A6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622B87D3CAF74D2C80C4E4DD /* /Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML/tinyxml2.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		094DC6039BE54D75A3FE4B19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77DA6825826849338727C673 /* engine */;
+			targetProxy = 24DABB0C4205429D801AD8C4 /* PBXContainerItemProxy */;
+		};
+		14BF963233594641B21C6340 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E83C39001F340EB92375053 /* tinyxml2 */;
+			targetProxy = 0BA35B9FD5A8461A9D445B0B /* PBXContainerItemProxy */;
+		};
+		16DFFE212F484FB2993F6636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101B5AE830B04E70A521A310 /* ZERO_CHECK */;
+			targetProxy = 1CA85437016F4B58BA5C8AAC /* PBXContainerItemProxy */;
+		};
+		3DD8F7053B694CAAA557BFAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C4D4E7E06A4939BEBB3FA8 /* tinyXML */;
+			targetProxy = F11C9A0B32744B74818ED2F8 /* PBXContainerItemProxy */;
+		};
+		5F6B2CF221AE4B838CFD5E4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E83C39001F340EB92375053 /* tinyxml2 */;
+			targetProxy = 7371814B203E43E0867C7E4B /* PBXContainerItemProxy */;
+		};
+		A542B9096A734274B5045F8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101B5AE830B04E70A521A310 /* ZERO_CHECK */;
+			targetProxy = F63A2CC715B94D4D90443B72 /* PBXContainerItemProxy */;
+		};
+		A5D719F11BD74A738A4E987A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101B5AE830B04E70A521A310 /* ZERO_CHECK */;
+			targetProxy = 4ADE293FEA4E4DD6A2297BA6 /* PBXContainerItemProxy */;
+		};
+		BCEC2686AC0B4500A3912DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C4D4E7E06A4939BEBB3FA8 /* tinyXML */;
+			targetProxy = 3849116214484A878DD66AF9 /* PBXContainerItemProxy */;
+		};
+		D5AA3F7F117D4F3B86DABCCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 101B5AE830B04E70A521A310 /* ZERO_CHECK */;
+			targetProxy = DEE352615AE84A5E9CDE2AEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0943C1C2BFFB46DF9B952058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Release;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyxml2;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyxml2.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		0D0F7BD248E34A0197719925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		1D04AF227FF34738BE2B0829 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		2EB972008C1F4233A932E29A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Debug;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks,"$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                   ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/Debug/libtinyXML.a,"-framework OpenGL","-framework OpenGL","-framework GLUT","-framework Cocoa",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/Debug/libtinyxml2.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = engine;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/engine.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2FFEBED0B7A84014A6D5ABBD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		315D4496FB5F442BA6C8C5A4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		344C9CDE56FE4B0990C10B51 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/RelWithDebInfo;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks,"$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                       -DNDEBUG ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/RelWithDebInfo/libtinyXML.a,"-framework OpenGL","-framework OpenGL","-framework GLUT","-framework Cocoa",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/RelWithDebInfo/libtinyxml2.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = engine;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/engine.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		55C16269F9194AAF99D221E7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/build;
+			};
+			name = MinSizeRel;
+		};
+		59BFB87D895440CC9F0AB84C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/RelWithDebInfo;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                       -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyXML;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyXML.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		5C86CB86DBE04635AAD95AF1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/MinSizeRel;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyxml2;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyxml2.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		76551B9DBE694647AFB78090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Release;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyXML;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyXML.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		7E7EE3DBD6B04311A95A22E4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/MinSizeRel;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyXML;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyXML.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		8172746F133E40B19632A845 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Debug;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                   ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyXML;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyXML.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		904A601BE1124F68800A024C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Release;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks,"$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/Release/libtinyXML.a,"-framework OpenGL","-framework OpenGL","-framework GLUT","-framework Cocoa",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/Release/libtinyxml2.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = engine;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/engine.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		9A4EB49B5D3B4ECA8D4DD05F /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/build;
+			};
+			name = RelWithDebInfo;
+		};
+		A447214860424ACAAF2512E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		A7961A233F5E4CC69798AD40 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/MinSizeRel;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks,"$(inherited)");
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                    -DNDEBUG ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/MinSizeRel/libtinyXML.a,"-framework OpenGL","-framework OpenGL","-framework GLUT","-framework Cocoa",/Users/flaviodrsousa/Desktop/CG24/Fase2/src/MinSizeRel/libtinyxml2.a,"$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = engine;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/engine.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		BFF2A327F722496E8BE9E893 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk;
+				SYMROOT = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/build;
+			};
+			name = Debug;
+		};
+		C3EEA81E525F45ACB2469654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		E755CD8C79924C459A9E38F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		F2F2D026E5454F5FA96B198B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/RelWithDebInfo;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                       -DNDEBUG ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyxml2;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyxml2.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		FA315E8440B84274A018F99A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		FE4B4DBD9FAE4F7BBF0C239E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/build;
+			};
+			name = Release;
+		};
+		FFA324C861F64125AED6C526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/flaviodrsousa/Desktop/CG24/Fase2/src/Debug;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GLUT.framework/Headers,/Users/flaviodrsousa/Desktop/CG24/Fase2/src/tinyXML,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "                   ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = tinyxml2;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/flaviodrsousa/Desktop/CG24/Fase2/src/build/tinyxml2.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A99D846B62A41A49C36DA21 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0F7BD248E34A0197719925 /* Debug */,
+				A447214860424ACAAF2512E5 /* Release */,
+				FA315E8440B84274A018F99A /* MinSizeRel */,
+				315D4496FB5F442BA6C8C5A4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		88976F66F9444A9E8A90CF45 /* Build configuration list for PBXNativeTarget "tinyXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8172746F133E40B19632A845 /* Debug */,
+				76551B9DBE694647AFB78090 /* Release */,
+				7E7EE3DBD6B04311A95A22E4 /* MinSizeRel */,
+				59BFB87D895440CC9F0AB84C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9425B3192906484BBC67DD0D /* Build configuration list for PBXProject "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF2A327F722496E8BE9E893 /* Debug */,
+				FE4B4DBD9FAE4F7BBF0C239E /* Release */,
+				55C16269F9194AAF99D221E7 /* MinSizeRel */,
+				9A4EB49B5D3B4ECA8D4DD05F /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9CEADFBFAAFA48CDBC90AD3E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3EEA81E525F45ACB2469654 /* Debug */,
+				E755CD8C79924C459A9E38F9 /* Release */,
+				1D04AF227FF34738BE2B0829 /* MinSizeRel */,
+				2FFEBED0B7A84014A6D5ABBD /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C1077C2BE56A47CBB0E03045 /* Build configuration list for PBXNativeTarget "tinyxml2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA324C861F64125AED6C526 /* Debug */,
+				0943C1C2BFFB46DF9B952058 /* Release */,
+				5C86CB86DBE04635AAD95AF1 /* MinSizeRel */,
+				F2F2D026E5454F5FA96B198B /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E7BE4A12EFD84043988F07BC /* Build configuration list for PBXNativeTarget "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EB972008C1F4233A932E29A /* Debug */,
+				904A601BE1124F68800A024C /* Release */,
+				A7961A233F5E4CC69798AD40 /* MinSizeRel */,
+				344C9CDE56FE4B0990C10B51 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEBA170A0EA34BB1BD56F19B /* Project object */;
+}

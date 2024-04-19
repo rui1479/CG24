@@ -1,0 +1,5 @@
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/tinyxml2.dir
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/tinyXML.dir
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/engine.dir
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/ALL_BUILD.dir
+/Users/flaviodrsousa/Desktop/CG24/Fase2/src/CMakeFiles/ZERO_CHECK.dir
