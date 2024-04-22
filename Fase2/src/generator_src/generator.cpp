@@ -27,16 +27,18 @@ int main(int argc, char *argv[]) {
             primitive = generatePlaneXZ(length, divisions, 0.0, 0);
         }
         else if (strcmp(argv[1], "box") == 0) {
-            float length = atoi(argv[2]), divisions = atoi(argv[3]);
+            float length = atof(argv[2]);
+            int divisions = atoi(argv[3]);
             file_path = argv[4];
 
             // Generate the box
             primitive = generateBox(length, divisions);
         }
         else if (strcmp(argv[1], "sphere") == 0) {
-            int radius = atoi(argv[2]), slices = atoi(argv[3]), stacks = atoi(argv[4]);
+            float radius = atof(argv[2]);
+            int slices = atoi(argv[3]), stacks = atoi(argv[4]);
             file_path = argv[5];
-
+            printf("Sphere radius: %f\n", radius);
             // Generate the sphere
             primitive = generateSphere(radius, slices, stacks);
         }
@@ -48,7 +50,7 @@ int main(int argc, char *argv[]) {
             primitive = generateCone(radius, height, slices, stacks);
         }
         else if (strcmp(argv[1], "ring") == 0) {
-           float innerRadius = atoi(argv[2]), outerRadius = atoi(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
+           float innerRadius = atof(argv[2]), outerRadius = atof(argv[3]), slices = atoi(argv[4]), stacks = atoi(argv[5]);
             file_path = argv[6];
 
             // Generate the cone
