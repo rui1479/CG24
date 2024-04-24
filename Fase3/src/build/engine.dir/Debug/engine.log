@@ -1,0 +1,6 @@
+﻿  engine.cpp
+C:\Users\diogo\Documents\GitHub\CG24\Fase3\src\engine_src\engine.cpp(143,20): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\diogo\Documents\GitHub\CG24\Fase3\src\engine_src\engine.cpp(149,20): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\diogo\Documents\GitHub\CG24\Fase3\src\engine_src\engine.cpp(159,20): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\diogo\Documents\GitHub\CG24\Fase3\src\engine_src\engine.cpp(343,1): warning C4715: 'readFile': nem todos os caminhos de controle retornam um valor
+  engine.vcxproj -> C:\Users\diogo\Documents\GitHub\CG24\Fase3\src\build\Debug\engine.exe

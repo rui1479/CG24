@@ -1,23 +1,48 @@
 #include <stdlib.h>
-#include <stdio.h>
+#include <GL/glew.h>
+#include <GL/glut.h>
 #include <list>
+#include <vector>
 #include <string>
+#include "ponto.h"
+#include <iostream>
+
 
 using namespace std;
 
 class Modelo {
-    list<Ponto> pontosLista;
 
-    public:
+    vector<float> pontos;
+    GLuint vertices;
+    float r;
+    float g;
+    float b;
 
-        Modelo();
+public:
 
-        Modelo(list<Ponto> pontosLista1);
+    Modelo();
 
-        list<Ponto> getPontos();
+    Modelo(vector<float> pontos, float r, float g, float b);
 
-        void setPontos(list<Ponto> pontosLista);
+    vector<float> getPontos();
 
-    };
+    float getR();
 
+    float getG();
+
+    float getB();
+
+    void setPontos(vector<float> pontos);
+
+    void setR(float r);
+
+    void setG(float g);
+
+    void setB(float b);
+
+    void prepareData();
+
+    void draw();
+
+};
 
