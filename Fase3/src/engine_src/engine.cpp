@@ -485,18 +485,18 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "cone.3d") == 0) {
 				cout << "Encontrei cone" << endl;
-				modelAtual.setPontos(readFile("C:\\Users\\Miguel\\Desktop\\CGF3\\3dFiles\\cone.3d"));
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"));
 			}
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "plane.3d") == 0) {
 				cout << "Encontrei plane" << endl;
-				modelAtual.setPontos(readFile("C:\\Users\\Miguel\\Desktop\\CGF3\\3dFiles\\plane.3d"));
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/plane.3d"));
 
 
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "box.3d") == 0) {
 				cout << "Encontrei box" << endl;
-				modelAtual.setPontos(readFile("C:\\Users\\Miguel\\Desktop\\CGF3\\3dFiles\\box.3d"));
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/box.3d"));
 
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "ring.3d") == 0) {
@@ -505,12 +505,19 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 			}
 
+			// if (strcmp(modeloAtualXML->Attribute("file"), "bezier.3d") == 0) {
+			// 	cout << "Encontrei cone" << endl;
+			// 	modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/bezier.3d"));
+
+			// }
+
+
 			modelAtual.prepareData();
 			(*grupo).addModelo(modelAtual);
 			modeloAtualXML = modeloAtualXML->NextSiblingElement();
 		}
 	}
-
+	//"C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"
 	//int linhaTrans = -1, linhaRot = -1, linhaScale = -1;
 
 	string o = "";
