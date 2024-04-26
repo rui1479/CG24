@@ -35,7 +35,8 @@ int main(int argc, char *argv[]) {
             primitive = generateBox(length, divisions);
         }
         else if (strcmp(argv[1], "sphere") == 0) {
-            int radius = atoi(argv[2]), slices = atoi(argv[3]), stacks = atoi(argv[4]);
+            // string to float
+            float radius = atof(argv[2]), slices = atoi(argv[3]), stacks = atoi(argv[4]);
             file_path = argv[5];
 
             // Generate the sphere
