@@ -505,11 +505,11 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 			}
 
-			// if (strcmp(modeloAtualXML->Attribute("file"), "bezier.3d") == 0) {
-			// 	cout << "Encontrei cone" << endl;
-			// 	modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/bezier.3d"));
+			if (strcmp(modeloAtualXML->Attribute("file"), "bezier.3d") == 0) {
+				cout << "Encontrei cone" << endl;
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/bezier.3d"));
 
-			// }
+			}
 
 
 			modelAtual.prepareData();
