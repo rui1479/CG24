@@ -3,10 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\build\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC6C0BCB-4AEB-395A-8C84-3AB00A247092}|engine.vcxproj|C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\modelo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BC6C0BCB-4AEB-395A-8C84-3AB00A247092}|engine.vcxproj|C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC6C0BCB-4AEB-395A-8C84-3AB00A247092}|engine.vcxproj|C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BC6C0BCB-4AEB-395A-8C84-3AB00A247092}|engine.vcxproj|C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\modelo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54E7CE57-75AF-3E74-AD7B-643AEF70ADA8}|tinyXML.vcxproj|C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\tinyXML\\tinyxml2.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -31,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -59,25 +59,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "engine.cpp",
               "DocumentMoniker": "C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\engine.cpp",
               "RelativeDocumentMoniker": "..\\engine_src\\engine.cpp",
               "ToolTip": "C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\engine.cpp",
               "RelativeToolTip": "..\\engine_src\\engine.cpp",
-              "ViewState": "AQIAAOgBAAAAAAAAAAAiwAECAAAAAAAA",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAiwJAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T22:35:12.97Z"
+              "WhenOpened": "2024-04-23T22:35:12.97Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "modelo.cpp",
               "DocumentMoniker": "C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\modelo.cpp",
               "RelativeDocumentMoniker": "..\\engine_src\\modelo.cpp",
               "ToolTip": "C:\\Users\\diogo\\Documents\\GitHub\\CG24\\Fase3\\src\\engine_src\\modelo.cpp",
               "RelativeToolTip": "..\\engine_src\\modelo.cpp",
-              "ViewState": "AQIAABwAAAAAAAAAAAAiwCYAAAAAAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAiwCkAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-23T22:33:39.571Z",
               "EditorCaption": ""
