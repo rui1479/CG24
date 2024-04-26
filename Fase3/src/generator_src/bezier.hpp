@@ -6,5 +6,9 @@
 #include "../utils/primitive.hpp"
 #include "../utils/matrix.hpp"
 
+std::vector<std::vector<std::vector<float> > > readPatchesFile(const char* filePath);
+
+Primitive generateSurface(const char* filePath, int tessellation);
+
 
 #endif

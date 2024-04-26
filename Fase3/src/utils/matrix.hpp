@@ -19,7 +19,7 @@ using namespace std;
 void multiplyMatrices(int, int, const float*, int, int, const float*, float*, int*, int*);
 
 /**
- * Constrói a matriz de rotação com base nos eixos X, Y e Z do sistema de coordenadas.  
+ * Constrói a matriz de rotação com base dos eixos X, Y e Z do sistema de coordenadas.  
  * @param x Eixo X do sistema de coordenadas.
  * @param y Eixo Y do sistema de coordenadas.
  * @param z Eixo Z do sistema de coordenadas.
@@ -28,68 +28,54 @@ void multiplyMatrices(int, int, const float*, int, int, const float*, float*, in
 void buildRotMatrix(const float *x, const float *y, const float *z, float *m);
 
 /**
- * Calcula o producto cruzado (cross product) de dois vetores.
- * @param a Vetor que é utilizado no cálculo
- * @param b Vetor que é utilizado no cálculo
- * @param res Vetor que armazena o resultado do produto cruzado.
+ * Calcula o producto cruzado (cross product) de dois vectores.
+ * @param a Vector que é utilizado no cálculo
+ * @param b Vector que é utilizado no cálculo
+ * @param res Vector que armazena no resultado do producto.
 */
 void cross(const float *a, const float *b, float *res);
 
 /**
- * Normaliza um vetor.
- * @param a Vetor a ser normalizado.
+ * Normaliza um vector
+ * @param a Vector a ser normalizado
 */
 void normalize(float *a);
 
 /**
- * Calcula a norma de um vetor.
- * @param a Vetor cuja norma vai ser calculada.
- * @return A norma do vetor.
+ * Calcula a norma de um vector.
+ * @param a Vector cuja norma vai ser calculada.
 */
 float length(float *a);
 
 /**
- * Calcula o produto escalar entre dois vetores.
- * @param v1 Primeiro vetor.
- * @param v2 Segundo vetor.
- * @return O produto escalar entre os dois vetores.
+ * Calcula o produto escalar entre dois vectores.
 */
 float dot(float* v1, float* v2);
 
 /**
- * Calcula o ângulo entre dois vetores.
- * @param v1 Primeiro vetor.
- * @param v2 Segundo vetor.
- * @return O ângulo em radianos entre os dois vetores.
+ * Calcula o ângulo entre dois vectores.
 */
 float angleVectors(float* v1, float* v2);
 
 /**
- * Calcula o ponto da curva de Catmull-Rom para um valor de t específico.
- * @param t Valor de t (0 a 1) para a curva de Catmull-Rom.
- * @param p0 Primeiro ponto de controle da curva.
- * @param p1 Segundo ponto de controle da curva.
- * @param p2 Terceiro ponto de controle da curva.
- * @param p3 Quarto ponto de controle da curva.
- * @param pos Vetor que armazena o ponto resultante (se não desejar calcular, pode ser NULL).
- * @param deriv Vetor que armazena a derivada resultante (se não desejar calcular, pode ser NULL).
+ * Esta função é aquela p(t)
+ * @param t instante de tempo da função p(t)
+ * @param p0 Ponto de controlo da curva
+ * @param p1 Ponto de controlo da curva
+ * @param p2 Ponto de controlo da curva
+ * @param p3 Ponto de controlo da curva
+ * @param pos Ponto resultante (se não quiser calcular isto, colocar NULL no argumento)
+ * @param deriv Derivada resultante (se não quiser calcular isto, colocar NULL no argumento)
 */
 void getCatmullRomPoint(float t, vector<float> p0, vector<float> p1, vector<float> p2, vector<float> p3, float *pos, float *deriv);
 
 /**
- * Calcula o ponto global da curva de Catmull-Rom para um valor de t global.
- * @param gt Valor global de t (0 a tamanho do vetor de pontos de controle) para a curva de Catmull-Rom.
- * @param controlPoints Todos os pontos de controle da curva.
- * @param pos Vetor que armazena o ponto resultante.
- * @param deriv Vetor que armazena a derivada resultante.
+ * Esta função calcula o ponto da curva com base no valor de t.
+ * @param gt É basicamente o valor de t
+ * @param controlPoints Todos os pontos de controlo da curva
+ * @param pos Ponto resultante
+ * @param deriv Derivada resultante
 */
-void getGlobalCatmullRomPoint(float gt, vector<vector<float>> controlPoints, float *pos, float *deriv);
+void getGlobalCatmullRomPoint(float gt, vector<vector<float> > controlPoints, float *pos, float *deriv);
 
-/**
- * Calcula o ponto de superfície para uma curva bicúbica.
- * @param u Parâmetro u (0 a 1) para a curva bicúbica.
- * @param v Parâmetro v (0 a 1) para a curva bicúbica.
- * @param patch Matriz de pontos de controle da superfície bicúbica.
- * @param res Vetor que armazena o ponto de superfície resultante.
-*/
-void surfacePoint(float u, float v, vector<vector<float>> patch, float* res);
+void surfacePoint(float u, float v, vector<vector<float> > patch, float* res);

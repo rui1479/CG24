@@ -5,6 +5,7 @@
 #include "box.hpp"
 #include "cone.hpp"
 #include "sphere.hpp"
+#include "bezier.hpp"
 #include "ring.hpp"
 #include <string.h>
 #include <stdlib.h>
@@ -53,6 +54,12 @@ int main(int argc, char *argv[]) {
 
             // Generate the cone
             primitive = generateRing(innerRadius, outerRadius, slices, stacks);
+        } else if(strcmp(argv[1], "patch") == 0){
+            float tessellation = atoi(argv[2]);
+            const char* patchesFile = argv[3];
+            file_path = argv[4];
+
+            primitive = generateSurface(patchesFile,tessellation);
         }
         else {
             // Invalid shape
