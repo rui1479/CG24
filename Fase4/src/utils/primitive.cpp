@@ -15,6 +15,8 @@ struct primitive {
     vector<float>* specular;
     vector<float>* emissive;
     float shininess;
+    
+    
 };
 
 // Constructors

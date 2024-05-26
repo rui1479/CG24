@@ -39,6 +39,14 @@ Primitive generateCone(int radius, int height, int slices, int stacks) {
                 addValueList(getPontos(cone), newPoint(x2, z1, y2));
                 addValueList(getPontos(cone), newPoint(x4, z2, y4));
                 addValueList(getPontos(cone), newPoint(x3, z2, y3));
+
+                // Vetores normais
+                Vector3 normal1 = calculateNormal(Vector3(x1, z1, y1), Vector3(x2, z1, y2), Vector3(x3, z2, y3));
+                Vector3 normal2 = calculateNormal(Vector3(x2, z1, y2), Vector3(x4, z2, y4), Vector3(x3, z2, y3));
+
+                // Adiciona os vetores normais à lista de normais
+                addValueList(getNormais(cone), normal1);
+                addValueList(getNormais(cone), normal2);
             }
         }
     }

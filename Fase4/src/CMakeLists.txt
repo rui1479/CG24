@@ -11,6 +11,7 @@ set(SOURCE_FILES
     engine_src/grupo.cpp
     engine_src/modelo.cpp
     engine_src/transformacoes.cpp
+	engine_src/light.cpp
     engine_src/ponto.cpp
     utils/point.cpp
     utils/list.cpp

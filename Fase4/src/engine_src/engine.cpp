@@ -24,7 +24,7 @@ int alpha = 0, beta = 0, r = 20;      // angulos e raio da camara
 int xInicial, yInicial, modoRato = 0;   //posicoes anteriores da camara e modo da mesma
 
 bool eixos = true;   //eixos
-int tipo = GL_LINE;   //tipo de desenho linhas, pontos ou fill
+int tipo = GL_FILL;   //tipo de desenho linhas, pontos ou fill
 float v = 0.0f, g = 1.0f, b = 0.0f; //cores do desenho
 
 double lookX;
@@ -168,6 +168,7 @@ void drawGrupos() {
 
 //funcao que desenha os eixos
 void eixo() {
+	if(howManyLights(configuration) > 0) glDisable(GL_LIGHTING);
 	glBegin(GL_LINES);
 	// X axis in red
 	glColor3f(1.0f, 0.0f, 0.0f);
@@ -182,9 +183,53 @@ void eixo() {
 	glVertex3f(0.0f, 0.0f, -100.0f);
 	glVertex3f(0.0f, 0.0f, 100.0f);
 	glEnd();
+	if(howManyLights(configuration) > 0) glEnable(GL_LIGHTING);
 }
 
 
+int gl_light(int i){
+	switch(i){
+		case 0: return GL_LIGHT0;
+		case 1: return GL_LIGHT1;
+		case 2: return GL_LIGHT2;
+		case 3: return GL_LIGHT3;
+		case 4: return GL_LIGHT4;
+		case 5: return GL_LIGHT5;
+		case 6: return GL_LIGHT6;
+		case 7: return GL_LIGHT7;
+	}
+	return -1;
+}
+
+void executeLights(){
+	vector<Light> lights = getLights(configuration);
+	for(int i = 0; i < lights.size(); i++){
+		Light luz = lights[i];
+		vector<float> lPos = getLightPos(luz); 
+		vector<float> lDir = getLightDir(luz); normalize(lDir.data());
+		float cutoff = getLightCutoff(luz);
+
+		switch(getLightType(luz)){
+			case 'p':{
+				glLightfv(gl_light(i), GL_POSITION, lPos.data());
+				break;
+			}
+
+			case 'd':{
+				glLightfv(gl_light(i), GL_POSITION, lDir.data());
+				break;
+			}
+
+			case 's':{
+				glLightfv(gl_light(i), GL_POSITION, lPos.data());
+				glLightfv(gl_light(i), GL_SPOT_DIRECTION, lDir.data());
+				glLightf(gl_light(i), GL_SPOT_CUTOFF, cutoff);
+				glLightf(gl_light(i), GL_SPOT_EXPONENT, 0.0); 
+				break;
+			}
+		}
+	}
+}
 
 void renderScene(void) {
 
@@ -200,7 +245,8 @@ void renderScene(void) {
 	gluLookAt(camX, camY, camZ,
 		0.0, 0.0, 0.0,
 		0.0f, 1.0f, 0.0f);
-
+		
+	executeLights(); 
 
 	//desenhar eixos caso seja true
 	if (eixos) {
@@ -212,7 +258,17 @@ void renderScene(void) {
 
 	//desenhar a figura
 	drawGrupos();
-
+	// FPS Count
+	frame++;
+	int time = glutGet(GLUT_ELAPSED_TIME);
+	if (time - timebase > 1000) {
+		float fps = frame*1000.0f/(time-timebase);
+		snprintf(title,127,"FPS: %.2f, PCAM: (%.2f,%.2f,%.2f), CamMode: %s",fps,camx,camy,camz,cameraMode ? "SPH" : "FREE");
+		glutSetWindowTitle(title);
+		timebase = time;
+		frame = 0;
+	} 
+	// End of frame
 	glutSwapBuffers();
 
 }
@@ -515,7 +571,7 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 			modelAtual.prepareData();
 			(*grupo).addModelo(modelAtual);
 			modeloAtualXML = modeloAtualXML->NextSiblingElement();
-		}
+		
 	}
 	//"C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"
 	//int linhaTrans = -1, linhaRot = -1, linhaScale = -1;
@@ -568,58 +624,93 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 }
 
 
-//funcao que le o ficheiro.xml da pasta ../xml/ 
 void readXML(string file) {
-	XMLDocument xml;
-	XMLDocument xmltv;
-	string s;
+    XMLDocument xml;
+    XMLDocument xmltv;
+    string s;
 
+    if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {
+        cout << "Ficheiro lido com sucesso" << endl;
 
-	if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {  //condicao que carrega o ficheiro e testa se é válido
+        // Leitura da câmera
+        XMLElement* cameraElement = xmltv.FirstChildElement("world")->FirstChildElement("camera");
+        XMLElement* positionElement = cameraElement->FirstChildElement("position");
+        XMLElement* lookAtElement = cameraElement->FirstChildElement("lookAt");
+        XMLElement* upElement = cameraElement->FirstChildElement("up");
+        XMLElement* projectionElement = cameraElement->FirstChildElement("projection");
 
-		cout << "Ficheiro lido com sucesso" << endl;
+        // Leitura dos valores da câmera
+        camX = atof(positionElement->Attribute("x"));
+        camY = atof(positionElement->Attribute("y"));
+        camZ = atof(positionElement->Attribute("z"));
 
-		XMLElement* elemento = xml.FirstChildElement("world")->FirstChildElement("group");    //pega no elemento scene do xml
-		while (elemento != nullptr) {                  //avança até ser null
-			Grupo g = *new Grupo();
-			readGrupo(&g, elemento);
-			gruposLista.push_back(g);
-			elemento = elemento->NextSiblingElement();     //avança para o proximo
+        lookX = atof(lookAtElement->Attribute("x"));
+        lookY = atof(lookAtElement->Attribute("y"));
+        lookZ = atof(lookAtElement->Attribute("z"));
 
-		}
+        upX = atof(upElement->Attribute("x"));
+        upY = atof(upElement->Attribute("y"));
+        upZ = atof(upElement->Attribute("z"));
 
-		
-		//Camara
-		
-		XMLElement* tv = xmltv.FirstChildElement("world")->FirstChildElement("camera");
-		XMLElement* tv2 = tv->FirstChildElement("position");
-		XMLElement* tv3 = tv->FirstChildElement("lookAt");
-		XMLElement* tv4 = tv->FirstChildElement("up");
-		XMLElement* tv5 = tv->FirstChildElement("projection");
+        fov = atof(projectionElement->Attribute("fov"));
+        near = atof(projectionElement->Attribute("near"));
+        far = atof(projectionElement->Attribute("far"));
 
-		camX = atof(tv2->Attribute("x"));
-		camY = atof(tv2->Attribute("y"));
-		camZ = atof(tv2->Attribute("z"));
+        // Leitura das luzes
+        XMLElement *lightsElement = xml.FirstChildElement("world")->FirstChildElement("lights");
+        if (lightsElement != nullptr) {
+            XMLElement *lightElement = lightsElement->FirstChildElement("light");
+            while (lightElement != nullptr) {
+                const char* type = lightElement->Attribute("type");
+				printf("Type --> %s", type);
+                if (type) {
+                    if (strcmp(type, "point") == 0) {
+                        float x = lightElement->FloatAttribute("posX");
+                        float y = lightElement->FloatAttribute("posY");
+                        float z = lightElement->FloatAttribute("posZ");
+                        PointLight* pl = new PointLight(x, y, z);
+                        lights.push_back(pl);
+                    } else if (strcmp(type, "directional") == 0) {
+                        float x = lightElement->FloatAttribute("dirX");
+                        float y = lightElement->FloatAttribute("dirY");
+                        float z = lightElement->FloatAttribute("dirZ");
+                        DirectionalLight* dl = new DirectionalLight(x, y, z);
+                        lights.push_back(dl);
+						printf("Directional Light\n");
+						printf("x: %f\n", x);
+						printf("y: %f\n", y);
+						printf("z: %f\n", z);
+                    } else if (strcmp(type, "spotlight") == 0) {
+                        float px = lightElement->FloatAttribute("posX");
+                        float py = lightElement->FloatAttribute("posY");
+                        float pz = lightElement->FloatAttribute("posZ");
+                        float dx = lightElement->FloatAttribute("dirX");
+                        float dy = lightElement->FloatAttribute("dirY");
+                        float dz = lightElement->FloatAttribute("dirZ");
+                        float cutoff = lightElement->FloatAttribute("cutoff");
+                        Spotlight* sl = new Spotlight(px, py, pz, dx, dy, dz, cutoff);
+                        lights.push_back(sl);
+                    }
+                }
+                lightElement = lightElement->NextSiblingElement("light");
+            }
+        }
 
-
-		lookX = atof(tv3->Attribute("x"));
-		lookY = atof(tv3->Attribute("y"));
-		lookZ = atof(tv3->Attribute("z"));
-
-		upX = atof(tv4->Attribute("x"));
-		upY = atof(tv4->Attribute("y"));
-		upZ = atof(tv4->Attribute("z"));
-
-		fov = atof(tv5->Attribute("fov"));
-		near = atof(tv5->Attribute("near"));
-		far = atof(tv5->Attribute("far"));
-		
-	}
-	else {
-		cout << "Erro ao ler o xml" << endl;
-	}
-	return;
+        // Leitura dos grupos
+        XMLElement* groupElement = xml.FirstChildElement("world")->FirstChildElement("group");
+        while (groupElement != nullptr) {
+            Grupo g = *new Grupo();
+            readGrupo(&g, groupElement);
+            gruposLista.push_back(g);
+            groupElement = groupElement->NextSiblingElement("group");
+        }
+    }
+    else {
+        cout << "Erro ao ler o xml" << endl;
+    }
+    return;
 }
+
 
 
 
@@ -667,6 +758,56 @@ void keyboard(unsigned char key, int x, int y)
 
 }
 
+void init(){
+	glewInit();
+	ilInit();
+	ilEnable(IL_ORIGIN_SET);
+	ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
+	// Iluminação
+	if(howManyLights(configuration) > 0){ //* definiu-se luz(es)?
+		glEnable(GL_LIGHTING); 
+		glEnable(GL_RESCALE_NORMAL);
+		if(howManyLights(configuration) > 8){
+			printf("Número de luzes definidas superior a 8\n");
+			exit(1);
+		}
+        GLfloat white[4] = {1.0,1.0,1.0,1.0};
+		for(int i = 0; i < howManyLights(configuration); i++){
+			glEnable(gl_light(i));
+            glLightfv(gl_light(i), GL_DIFFUSE, white);
+            glLightfv(gl_light(i), GL_SPECULAR, white);
+		}
+		
+		float amb[4] = { 1.0f, 1.0f, 1.0f, 0.4f };
+		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
+    	
+	}
+	// Fim iluminação
+
+	// OpenGL settings
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+
+	// glEnable(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glPolygonMode(GL_FRONT, GL_LINE);
+	// Cria os buffers
+	glGenBuffers(figCount, buffers); 
+	glGenBuffers(figCount, buffersN);
+	glGenBuffers(figCount, buffersTC);
+	// Carrega os dados para os buffers
+	int index = 0; // serve para seleccionar o buffer que vai ser escrito
+	loadBuffersData(getTreeGroups(configuration),&index);
+	// Cálculo do tempo
+	timebase = glutGet(GLUT_ELAPSED_TIME);
+	init_time = NOW;
+	timeOld = timeNew = 0;
+}
+
 
 
 
@@ -705,6 +846,7 @@ int main(int argc, char* argv[]) {
 		cout << "Ficheiro xml não encontrado, a abrir o ficheiro solar_system.xml" << endl;
 	}
 
+	init();
 	// enter GLUT's main cycle 
 	glutMainLoop();
 }

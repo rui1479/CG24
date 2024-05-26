@@ -2,6 +2,7 @@
 #include "box.hpp"
 #include <vector>
 
+
 Primitive generateBox(float size, int divisions) {
     Primitive box = newEmptyPrimitive();
     float step = size / divisions;
