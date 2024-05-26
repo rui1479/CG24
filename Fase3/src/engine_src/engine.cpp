@@ -1,15 +1,8 @@
+
+
 #include <stdlib.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
-
-#ifdef __APPLE__
-#define GL_SILENCE_DEPRECATION
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -22,6 +15,7 @@
 #include <algorithm> 
 #include <vector>
 
+
 using namespace tinyxml2;
 using namespace std;
 
@@ -31,7 +25,7 @@ int xInicial, yInicial, modoRato = 0;   //posicoes anteriores da camara e modo d
 
 bool eixos = true;   //eixos
 int tipo = GL_LINE;   //tipo de desenho linhas, pontos ou fill
-float v = 1.0f, g = 1.0f, b = 1.0f; //cores do desenho
+float v = 0.0f, g = 1.0f, b = 0.0f; //cores do desenho
 
 double lookX;
 double lookY;
@@ -70,6 +64,19 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void aplicaRotacao(Rotacao rot) {
+
+	float aux, anguloRot;
+	int tempoPrograma;
+
+	if (rot.getTempo() != 0) {
+		tempoPrograma = glutGet(GLUT_ELAPSED_TIME);
+		aux = tempoPrograma % (int)(rot.getTempo() * 1000);
+		anguloRot = (aux * 360) / (rot.getTempo() * 1000);
+		glRotatef(anguloRot, rot.getX(), rot.getY(), rot.getZ());
+	}
+}
+
 //funcao desenha
 //pega na lista de pontos e vai percorrer a mesma usando um iterador, a cada 3 pontos desenha um triangulo
 //desta forma, cada iteraçao do ciclo for 3 pontos e um triangulo sao desenhados avan�ando assim o iterador em 3 posiçoes
@@ -90,25 +97,39 @@ void drawPontos(list<Ponto> pontosLista) {
 }
 
 
-void drawGrupo(Grupo gR) {
-	Translacao t = gR.getTranslacao();
-	Rotacao r = gR.getRotacao();
-	Escala e = gR.getEscala();
-	string ordem = gR.getOrdem();
-	vector<Grupo> filhos = gR.getFilhos();
+void drawGrupo(Grupo g) {
 
-	vector<Modelo> m = gR.getModelos();
+	// obtenção da informação do grupo passado como arugmento
 
+	Translacao t = g.getTranslacao();
+	Rotacao r = g.getRotacao();
+	Escala e = g.getEscala();
+	string ordem = g.getOrdem();
+	vector<Grupo> filhos = g.getFilhos();
+	vector<Modelo> m = g.getModelos();
 
 	glPushMatrix();
+
+	// executar as tranformações pela ordem correta
 
 	for (int i = 0; i < 5; i += 2) {
 		switch (ordem[i]) {
 		case 'T':
-			glTranslatef(t.getX(), t.getY(), t.getZ());
+			if (t.getPontos().size() == 0) {
+				glTranslatef(t.getX(), t.getY(), t.getZ());
+			}
+			else {
+				glColor3f(1.0f, 1.0f, 1.0f);
+				t.draw();
+			}
 			break;
 		case 'R':
-			glRotatef(r.getAngulo(), r.getX(), r.getY(), r.getZ());
+			if (r.getAngulo() != 0) {
+				glRotatef(r.getAngulo(), r.getX(), r.getY(), r.getZ());
+			}
+			else {
+				aplicaRotacao(r);
+			}
 			break;
 		case 'E':
 			glScalef(e.getX(), e.getY(), e.getZ());
@@ -120,8 +141,9 @@ void drawGrupo(Grupo gR) {
 
 
 	for (int i = 0; i < m.size(); i++) {
-		glColor3f(v, g, b);
-		drawPontos(m[i].getPontos());
+		glColor3f(m[i].getR(), m[i].getG(), m[i].getB());
+		Modelo aux = m[i];
+		aux.draw();
 	}
 
 	for (int i = 0; i < filhos.size(); i++) {
@@ -134,10 +156,11 @@ void drawGrupo(Grupo gR) {
 
 
 void drawGrupos() {
-	for (int i = 0; i < gruposLista.size(); i++) {
+	for (int i = 0; i < gruposLista.size(); i++) { // vai individualmente a cada grupo principal, que estao alocados globalmente no vetor gruposLista
 		drawGrupo(gruposLista[i]);
 	}
 }
+
 
 
 
@@ -171,12 +194,12 @@ void renderScene(void) {
 
 	//modo de desenho, começa com linhas por defeito
 	glPolygonMode(GL_FRONT_AND_BACK, tipo);
-	
+
 
 	glLoadIdentity();
 	gluLookAt(camX, camY, camZ,
-		lookX, lookY, lookZ,
-		upX, upY, upZ);
+		0.0, 0.0, 0.0,
+		0.0f, 1.0f, 0.0f);
 
 
 	//desenhar eixos caso seja true
@@ -258,9 +281,37 @@ void processMouseMotion(int x, int y)
 //funcao que le cada ficheiro .3d a partir do seu caminho
 //preenchendo a lista de pontos com os pontos lidos do ficheiro
 
-list<Ponto> readFile(string caminho3d) {
+// vector<float> readFile(string caminho3d) {
+// 	string linha;
+// 	vector<string> coordenadas;
+// 	vector<float> pontosLista;
+
+// 	//abrir o ficheiro
+// 	ifstream file(caminho3d);
+// 	if (file.is_open()) {
+
+// 		//pega na primeira linha que é o número de vértices ou seja numero de linhas a ler (3 vertice por linha)
+// 		getline(file, linha);
+// 		int nLinhas = atoi(linha.c_str());
+// 		for (int i = 1; i <= nLinhas; i++) {
+// 			getline(file, linha);     //pegar na linha atual
+// 			stringstream ss(linha);
+// 			vector<string> result{
+// 				istream_iterator<string>(ss), {}    //separar a linha nos espaços e guardar como array de strings em result
+// 			};
+// 			pontosLista.push_back(stof(result[0]));
+// 			pontosLista.push_back(stof(result[1]));
+// 			pontosLista.push_back(stof(result[2]));
+// 		}
+
+// 		return pontosLista;
+// 	}
+// 	else { cout << "Erro ao ler o ficheiro .3d" << endl; }
+// }
+
+vector<float> readFile(string caminho3d) {
 	string linha;
-	list<Ponto> pontosLista;
+	vector<float> pontosLista;
 	
 	//abrir o ficheiro
 	ifstream file(caminho3d);
@@ -278,7 +329,9 @@ list<Ponto> readFile(string caminho3d) {
 				result.push_back(token);
 			}
 			if(result.size() >= 3) {
-				pontosLista.push_back(Ponto(stof(result[0]), stof(result[1]), stof(result[2]))); //adiciona o Ponto lido à lista de pontos
+				pontosLista.push_back(stof(result[0]));
+				pontosLista.push_back(stof(result[1]));
+				pontosLista.push_back(stof(result[2])); //adiciona o Ponto lido à lista de pontos
 			} else {
 				cout << "Linha " << i << " não contém três coordenadas." << endl;
 			}
@@ -289,34 +342,66 @@ list<Ponto> readFile(string caminho3d) {
 	else { cout << "Erro ao ler o ficheiro .3d" << endl; }
 }
 
+//"C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"
 
 void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
+
 
 
 	int linhaTrans = -1, linhaRot = -1, linhaScale = -1;
 	XMLElement* elementoAux = elementoXml->FirstChildElement("transform");
 
 	XMLElement* translacaoElemento = elementoAux->FirstChildElement("translate");
+
 	if (translacaoElemento != nullptr) {
 
-		cout << "translate" << endl;
 		linhaTrans = translacaoElemento->GetLineNum();
 
-		float x = 0, y = 0, z = 0;
-		if (translacaoElemento->Attribute("x") != nullptr) {
-			x = stof(translacaoElemento->Attribute("x"));
+		float tempo = 0;
+		float x, y, z;
+		x = y = z = 0;
+		vector <Ponto> pontosCatmull;
+
+		if (translacaoElemento->Attribute("time") != nullptr) {
+
+
+			tempo = stof(translacaoElemento->Attribute("time"));
+			XMLElement* pontos = translacaoElemento->FirstChildElement("point");
+
+			while (pontos != nullptr) {
+
+				if (pontos->Attribute("x") != nullptr) {
+					x = stof(pontos->Attribute("x"));
+				}
+				if (pontos->Attribute("y") != nullptr) {
+					y = stof(pontos->Attribute("y"));
+				}
+				if (pontos->Attribute("z") != nullptr) {
+					z = stof(pontos->Attribute("z"));
+				}
+
+				pontosCatmull.push_back(*new Ponto(x, y, z));
+				pontos = pontos->NextSiblingElement();
+			}
+
+			Translacao t = *new Translacao(tempo, pontosCatmull);
+			(*grupo).setTranslacao(t);
 		}
-		if (translacaoElemento->Attribute("y") != nullptr) {
-			y = stof(translacaoElemento->Attribute("y"));
+
+		else {
+
+			if (translacaoElemento->Attribute("x") != nullptr) {
+				x = stof(translacaoElemento->Attribute("x"));
+			}
+			if (translacaoElemento->Attribute("y") != nullptr) {
+				y = stof(translacaoElemento->Attribute("y"));
+			}
+			if (translacaoElemento->Attribute("z") != nullptr) {
+				z = stof(translacaoElemento->Attribute("z"));
+			}
+			Translacao t = *new Translacao(x, y, z);
+			(*grupo).setTranslacao(t);
 		}
-		if (translacaoElemento->Attribute("z") != nullptr) {
-			z = stof(translacaoElemento->Attribute("z"));
-		}
-		cout << x << endl;
-		cout << y << endl;
-		cout << z << endl;
-		Translacao t = *new Translacao(x, y, z);
-		(*grupo).setTranslacao(t);
 	}
 
 
@@ -326,7 +411,10 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 		linhaRot = rotacaoElemento->GetLineNum();
 
-		float angulo = 0, x = 0, y = 0, z = 0;
+		float tempo = 0, x = 0, y = 0, z = 0, angulo = 0;
+		if (rotacaoElemento->Attribute("time") != nullptr) {
+			tempo = stof(rotacaoElemento->Attribute("time"));
+		}
 		if (rotacaoElemento->Attribute("angle") != nullptr) {
 			angulo = stof(rotacaoElemento->Attribute("angle"));
 		}
@@ -339,7 +427,7 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 		if (rotacaoElemento->Attribute("z") != nullptr) {
 			z = stof(rotacaoElemento->Attribute("z"));
 		}
-		Rotacao r = *new Rotacao(x, y, z, angulo);
+		Rotacao r = *new Rotacao(x, y, z, tempo, angulo);
 		(*grupo).setRotacao(r);
 
 	}
@@ -366,8 +454,8 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 	}
 
 
-	XMLElement* modelosXML = elementoXml->FirstChildElement("models");
 
+	XMLElement* modelosXML = elementoXml->FirstChildElement("models");
 	if (modelosXML != nullptr) {
 		XMLElement* modeloAtualXML = modelosXML->FirstChildElement("model");
 
@@ -375,36 +463,62 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 			Modelo modelAtual = *new Modelo();
 
+			float r = 0.0f, g = 0.0f, b = 0.0f;
+			if (modeloAtualXML->Attribute("R") != nullptr) {
+				r = stof(modeloAtualXML->Attribute("R"));
+			}
+			if (modeloAtualXML->Attribute("G") != nullptr) {
+				g = stof(modeloAtualXML->Attribute("G"));
+			}
+			if (modeloAtualXML->Attribute("B") != nullptr) {
+				b = stof(modeloAtualXML->Attribute("B"));
+			}
+
+			modelAtual.setR(r);
+			modelAtual.setG(g);
+			modelAtual.setB(b);
+
 			if (strcmp(modeloAtualXML->Attribute("file"), "sphere.3d") == 0) {
 				cout << "Encontrei sphere" << endl;
-				modelAtual.setPontos(readFile("../outputs/sphere.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/sphere.3d"));
+
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "cone.3d") == 0) {
 				cout << "Encontrei cone" << endl;
-				modelAtual.setPontos(readFile("../outputs/cone.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"));
 			}
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "plane.3d") == 0) {
 				cout << "Encontrei plane" << endl;
-				modelAtual.setPontos(readFile("../outputs/plane.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/plane.3d"));
+
 
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "box.3d") == 0) {
 				cout << "Encontrei box" << endl;
-				modelAtual.setPontos(readFile("../outputs/box.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/box.3d"));
+
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "ring.3d") == 0) {
 				cout << "Encontrei ring" << endl;
-				modelAtual.setPontos(readFile("../outputs/ring.3d"));
-				(*grupo).addModelo(modelAtual);
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"));
+
 			}
+
+			if (strcmp(modeloAtualXML->Attribute("file"), "bezier.3d") == 0) {
+				cout << "Encontrei cone" << endl;
+				modelAtual.setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/bezier.3d"));
+
+			}
+
+
+			modelAtual.prepareData();
+			(*grupo).addModelo(modelAtual);
 			modeloAtualXML = modeloAtualXML->NextSiblingElement();
 		}
 	}
+	//"C:/Users/diogo/Documents/GitHub/CG24/Fase3/outputs/ring.3d"
+	//int linhaTrans = -1, linhaRot = -1, linhaScale = -1;
 
 	string o = "";
 
@@ -435,6 +549,7 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 		}
 	}
 
+
 	(*grupo).setOrdem(o);
 
 	XMLElement* filhos = elementoXml->FirstChildElement("group");
@@ -447,26 +562,35 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 		filhos = filhos->NextSiblingElement();
 	}
+	cout << "sai" << endl;
+
+
 }
 
 
-//funcao que le o ficheiro.xml da pasta testes
+//funcao que le o ficheiro.xml da pasta ../xml/ 
 void readXML(string file) {
 	XMLDocument xml;
 	XMLDocument xmltv;
 	string s;
-	if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {  //condicao que carrega o ficheiro e testa se é valido
+
+
+	if (!(xml.LoadFile((file).c_str())) && !(xmltv.LoadFile((file).c_str()))) {  //condicao que carrega o ficheiro e testa se é válido
+
 		cout << "Ficheiro lido com sucesso" << endl;
 
-		XMLElement* elemento = xml.FirstChildElement("world")->FirstChildElement("group");    //pega no elemento world do xml
+		XMLElement* elemento = xml.FirstChildElement("world")->FirstChildElement("group");    //pega no elemento scene do xml
 		while (elemento != nullptr) {                  //avança até ser null
 			Grupo g = *new Grupo();
-			readGrupo(&g, elemento);									
+			readGrupo(&g, elemento);
 			gruposLista.push_back(g);
 			elemento = elemento->NextSiblingElement();     //avança para o proximo
+
 		}
 
+		
 		//Camara
+		
 		XMLElement* tv = xmltv.FirstChildElement("world")->FirstChildElement("camera");
 		XMLElement* tv2 = tv->FirstChildElement("position");
 		XMLElement* tv3 = tv->FirstChildElement("lookAt");
@@ -477,8 +601,6 @@ void readXML(string file) {
 		camY = atof(tv2->Attribute("y"));
 		camZ = atof(tv2->Attribute("z"));
 
-		xInicial = camX;
-		yInicial = camY;
 
 		lookX = atof(tv3->Attribute("x"));
 		lookY = atof(tv3->Attribute("y"));
@@ -491,33 +613,15 @@ void readXML(string file) {
 		fov = atof(tv5->Attribute("fov"));
 		near = atof(tv5->Attribute("near"));
 		far = atof(tv5->Attribute("far"));
-
-		cout << "POSITION\n" << endl;
-		cout << camX << "\n" << endl;
-		cout << camY << "\n" << endl;
-		cout << camZ << "\n" << endl;
-
-		cout << "LOOK \n" << endl;
-		cout << lookX << "\n" << endl;
-		cout << lookY << "\n" << endl;
-		cout << lookZ << "\n" << endl;
-
-		cout << "UP\n" << endl;
-		cout << upX << "\n" << endl;
-		cout << upY << "\n" << endl;
-		cout << upZ << "\n" << endl;
-
-		cout << "Projection\n" << endl;
-		cout << fov << "\n" << endl;
-		cout << near << "\n" << endl;
-		cout << far << "\n" << endl;
+		
 	}
-
 	else {
 		cout << "Erro ao ler o xml" << endl;
 	}
 	return;
 }
+
+
 
 
 //funcao que da funçao às teclas premidas
@@ -568,20 +672,13 @@ void keyboard(unsigned char key, int x, int y)
 
 int main(int argc, char* argv[]) {
 
-	if (argc == 2) {
-		readXML(argv[1]);
-	}
-	else {
-		readXML("demo.xml");
-	}
-
 
 	// inicialization
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(1200, 800);
-	glutCreateWindow("Phase 2");
+	glutCreateWindow("Phase 3");
 
 	// callback registration 
 	glutDisplayFunc(renderScene);
@@ -593,9 +690,20 @@ int main(int argc, char* argv[]) {
 	glutMotionFunc(processMouseMotion);
 	glutKeyboardFunc(keyboard);
 
+	glewInit();
 	// OpenGL settings
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
+	glEnableClientState(GL_VERTEX_ARRAY);
+
+
+	if (argc == 2) {
+		readXML(argv[1]);
+	}
+	else {
+		readXML("C:/Users/diogo/Documents/GitHub/CG24/Fase3/testes/solar_system.xml");
+		cout << "Ficheiro xml não encontrado, a abrir o ficheiro solar_system.xml" << endl;
+	}
 
 	// enter GLUT's main cycle 
 	glutMainLoop();

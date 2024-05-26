@@ -1,0 +1,3 @@
+﻿  engine.cpp
+C:\Users\diogo\Documents\GitHub\CG24\Fase1\src\engine_src\engine.cpp(141,27): warning C4018: '<': incompatibilidade de signed/unsigned
+  engine.vcxproj -> C:\Users\diogo\Documents\GitHub\CG24\Fase1\src\build\Debug\engine.exe

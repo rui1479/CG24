@@ -399,29 +399,29 @@ void readGrupo(Grupo* grupo, XMLElement* elementoXml) {
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "sphere.3d") == 0) {
 				cout << "Encontrei sphere" << endl;
-				modelAtual->setPontos(readFile("../outputs/sphere.3d"));
+				modelAtual->setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase2/outputs/sphere.3d"));
 				grupo->addModelo(*modelAtual);
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "cone.3d") == 0) {
 				cout << "Encontrei cone" << endl;
-				modelAtual->setPontos(readFile("../outputs/cone.3d"));
+				modelAtual->setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase2/outputs/cone.3d"));
 				grupo->addModelo(*modelAtual);
 			}
 
 			if (strcmp(modeloAtualXML->Attribute("file"), "plane.3d") == 0) {
 				cout << "Encontrei plane" << endl;
-				modelAtual->setPontos(readFile("../outputs/plane.3d"));
+				modelAtual->setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase2/outputs/plane.3d"));
 				grupo->addModelo(*modelAtual);
 
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "box.3d") == 0) {
 				cout << "Encontrei box" << endl;
-				modelAtual->setPontos(readFile("../outputs/box.3d"));
+				modelAtual->setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase2/outputs/box.3d"));
 				grupo->addModelo(*modelAtual);
 			}
 			if (strcmp(modeloAtualXML->Attribute("file"), "ring.3d") == 0) {
 				cout << "Encontrei ring" << endl;
-				modelAtual->setPontos(readFile("../outputs/ring.3d"));
+				modelAtual->setPontos(readFile("C:/Users/diogo/Documents/GitHub/CG24/Fase2/outputs/ring.3d"));
 				grupo->addModelo(*modelAtual);
 			}
 			modeloAtualXML = modeloAtualXML->NextSiblingElement();
@@ -594,7 +594,9 @@ int main(int argc, char* argv[]) {
 		readXML(argv[1]);
 	}
 	else {
-		readXML("../testes/solar_system.xml");
+		// caminho completo do ficheiro xml
+
+		readXML("C:/Users/diogo/Documents/GitHub/CG24/Fase2/testes/solar_system.xml");
 	}
 
 

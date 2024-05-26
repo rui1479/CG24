@@ -1,0 +1,9 @@
+﻿  1>Checking Build System
+  CMake is re-running because C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/generate.stamp is out-of-date.
+    the file 'C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/CMakeLists.txt'
+    is newer than 'C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/generate.stamp.depend'
+    result='-1'
+  -- Selecting Windows SDK version 10.0.22621.0 to target Windows 10.0.22631.
+  -- Configuring done (0.0s)
+  -- Generating done (0.1s)
+  -- Build files have been written to: C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build

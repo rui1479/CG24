@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\diogo\Documents\GitHub\CG24\Fase1\src\build\CMakeFiles\494881ff0362afa1a789389b357e7c57\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1BBACCFE-9554-3535-A4B7-AD8AC99995F9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

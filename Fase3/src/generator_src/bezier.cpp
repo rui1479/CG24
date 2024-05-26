@@ -4,8 +4,8 @@
 #include <sstream>
 #include <vector>
 
-std::vector<std::vector<std::vector<float>>> readPatchesFile(const char* filePath) {
-    std::vector<std::vector<std::vector<float>>> result;
+std::vector<std::vector<std::vector<float> > > readPatchesFile(const char* filePath) {
+    std::vector<std::vector<std::vector<float> > > result;
 
     std::ifstream file(filePath);
     if (!file.is_open()) {
@@ -20,7 +20,7 @@ std::vector<std::vector<std::vector<float>>> readPatchesFile(const char* filePat
     int numPatches = std::stoi(line);
 
     // Obtenção dos índices de cada patch
-    std::vector<std::vector<int>> indicesPerPatch;
+    std::vector<std::vector<int> > indicesPerPatch;
     for (int i = 0; i < numPatches; i++) {
         if (!std::getline(file, line)) {
             throw std::runtime_error("Erro ao ler os índices de patches");
@@ -41,7 +41,7 @@ std::vector<std::vector<std::vector<float>>> readPatchesFile(const char* filePat
     int numControlPoints = std::stoi(line);
 
     // Obtenção dos pontos de controle
-    std::vector<std::vector<float>> controlPoints;
+    std::vector<std::vector<float> > controlPoints;
     for (int i = 0; i < numControlPoints; i++) {
         if (!std::getline(file, line)) {
             throw std::runtime_error("Erro ao ler os pontos de controle");
@@ -57,7 +57,7 @@ std::vector<std::vector<std::vector<float>>> readPatchesFile(const char* filePat
 
     // Construção dos patches
     for (const std::vector<int>& indices : indicesPerPatch) {
-        std::vector<std::vector<float>> patch;
+        std::vector<std::vector<float> > patch;
         for (int indice : indices) {
             patch.emplace_back(controlPoints[indice]);
         }

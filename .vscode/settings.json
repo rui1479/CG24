@@ -1,7 +1,8 @@
 {
-    "files.associations": {
-        ".fantomasignore": "ignore",
-        "cctype": "cpp",
-        "cwchar": "cpp"
-    }
+  "files.associations": {
+    ".fantomasignore": "ignore",
+    "cctype": "cpp",
+    "cwchar": "cpp",
+    "iostream": "cpp"
+  }
 }

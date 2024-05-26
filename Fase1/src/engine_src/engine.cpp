@@ -301,6 +301,10 @@ void lerXML(const string& fich) {
 int main(int argc, char** argv) {
     
    if (argc > 1){
+    //C:\Users\diogo\Documents\GitHub\CG24\Fase1\testes\box_test.xml
+    //C:\Users\diogo\Documents\GitHub\CG24\Fase1\testes\cone_test.xml
+    //C:\Users\diogo\Documents\GitHub\CG24\Fase1\testes\plane_test.xml
+    //C:\Users\diogo\Documents\GitHub\CG24\Fase1\testes\sphere_test.xml
         lerXML(argv[1]);
      }
 

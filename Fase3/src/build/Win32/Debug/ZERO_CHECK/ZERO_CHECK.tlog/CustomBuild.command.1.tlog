@@ -1,0 +1,10 @@
+^C:\USERS\DIOGO\DOCUMENTS\GITHUB\CG24\FASE3\SRC\BUILD\CMAKEFILES\1E539C03229AE59C558B820F0FBC599B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/diogo/Documents/GitHub/CG24/Fase3/src -BC:/Users/diogo/Documents/GitHub/CG24/Fase3/src/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/diogo/Documents/GitHub/CG24/Fase3/src/build/engine.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

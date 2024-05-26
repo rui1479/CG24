@@ -1,0 +1,4 @@
+C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/tinyXML.dir
+C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/engine.dir
+C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/diogo/Documents/GitHub/CG24/Fase2/src/build/CMakeFiles/ZERO_CHECK.dir

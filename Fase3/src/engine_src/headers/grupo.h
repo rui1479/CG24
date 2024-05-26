@@ -1,18 +1,17 @@
+#include "modelo.h"
 #include "transformacoes.h"
 #include "ponto.h"
-#include "modelo.h"
-#include <vector>
 
 using namespace std;
 
 
 
 class Grupo {
-	Escala esc;						// escala associada ao group
-	Translacao trans;				// translação associada ao group
-	Rotacao rot;					// rotação associada ao group
-	string ordem;					// ordem das transformações do grupo
-	vector<Modelo> modelos;			// modelos que contém os pontos e a cor associada ao grupo
+	Escala esc;					// escala associada ao group
+	Translacao trans;			// translaÃ§Ã£o associada ao group
+	Rotacao rot;				// rotaÃ§Ã£o associada ao group
+	string ordem;				// ordem das transformaÃ§Ãµes do grupo
+	vector<Modelo> modelos;		// modelos que contÃ©m os pontos e a cor associada ao grupo
 	vector<Grupo> filhos;			// descendentes do grupo
 
 public:

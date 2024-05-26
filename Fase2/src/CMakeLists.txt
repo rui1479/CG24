@@ -20,11 +20,11 @@ set(SOURCE_FILES
 # Set Toolkits_DIR
 set(TOOLKITS_FOLDER "" CACHE PATH "Path to Toolkits folder")
 
-# Set TinyXML directory for windows
-set(TINYXML_FOLDER "" CACHE PATH "Path to TinyXML folder")
+# # Set TinyXML directory for windows
+# set(TINYXML_FOLDER "" CACHE PATH "Path to TinyXML folder")
 
-# Add TinyXML library windows
-add_library(tinyxml2 ${TINYXML_FOLDER}/tinyxml2.cpp)
+# # Add TinyXML library windows
+# add_library(tinyxml2 ${TINYXML_FOLDER}/tinyxml2.cpp)
 
 # Biblioteca de parsing de XML
 add_library(
